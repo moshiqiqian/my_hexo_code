@@ -824,8 +824,8 @@ beautify:
 font:
   global_font_size: 18px
   code_font_size: 15.5px
-  font_family: 
-  code_font_family:
+  font_family: Consolas, HYTangMeiRen55W, SourceCodePro, MiSans, 甜甜圈海报字体, 霞鹜文楷, 优设好身体, 筑紫A丸by宁静之雨, 筑紫圆体JWD
+  code_font_family: Consolas, HYTangMeiRen55W, SourceCodePro, MiSans
 
 # Font settings for the site title and site subtitle
 blog_title_font:
