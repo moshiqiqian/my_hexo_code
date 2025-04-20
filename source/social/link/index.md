@@ -8,26 +8,13 @@ type: "link"
 {% tabs link %}
 <!-- tab 🙋 butterfly-💭candy -->
 ```yml
-    - name: Fomalhaut🥝
-      link: https://www.fomal.cc/
-      avatar: https://www.fomal.cc/assets/avatar.webp
-      descr: Future is now 🍭🍭🍭
-      siteshot: https://source.fomal.cc/siteshot/www.fomal.cn.jpg
+    - name: moshiqiqian
+      link: https://moshiqiqian.github.io
+      avatar: https://pic1.imgdb.cn/item/67f21c390ba3d5a1d7ee963b.jpg 
+      descr: mo的小站
+      siteshot: https://pic1.imgdb.cn/item/67fe2fd988c538a9b5d1b889.png
 ```
-<!-- endtab -->
 
-<!-- tab 🥗Volantis -->
-```JSON
-{
-  "title": "Fomalhaut🥝",
-  "screenshot": "https://source.fomal.cc/siteshot/www.fomal.cn.jpg",
-  "url": "https://www.fomal.cc/",
-  "avatar": "https://www.fomal.cc/assets/avatar.webp",
-  "description": "Future is now 🍭🍭🍭",
-  "keywords": "Fomalhaut🥝"
-}
-```
-<!-- endtab -->
 
 <!-- tab 🌴General -->
 
