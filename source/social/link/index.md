@@ -3,31 +3,32 @@ title: 友人帐
 date: 2025-04-12 12:00:00
 type: "link"
 ---
-
 ## 本站友链添加方式：
 {% tabs link %}
 <!-- tab 🙋 butterfly-💭candy -->
 ```yml
     - name: moshiqiqian
       link: https://moshiqiqian.github.io
-      avatar: https://pic1.imgdb.cn/item/67f21c390ba3d5a1d7ee963b.jpg 
+      avatar: https://pic1.imgdb.cn/item/67f21c390ba3d5a1d7ee963b.jpg
       descr: mo的小站
       siteshot: https://pic1.imgdb.cn/item/67fe2fd988c538a9b5d1b889.png
 ```
-
-
-<!-- tab 🌴General -->
-
-| 名称       | 数值                                                         |
-| ---------- | ------------------------------------------------------------ |
-| 站点名称   | moshiqiqian                                               |
-| 站点截图   | https://pic1.imgdb.cn/item/67fe2fd988c538a9b5d1b889.png |
-| 站点链接   | https://moshiqiqian.github.io                                      |
-| 站长头像   | https://pic1.imgdb.cn/item/67f21c390ba3d5a1d7ee963b.jpg                         |
-| 站点描述   | mo的小站                         |
-| 站点关键词 | moshiqiqian,个人博客                                |
-
 <!-- endtab -->
+
+<!-- tab 🥗Volantis -->
+```JSON
+{
+  "title": "moshiqiqian",
+  "screenshot": "https://pic1.imgdb.cn/item/67fe2fd988c538a9b5d1b889.png",
+  "url": "https://moshiqiqian.github.io",
+  "avatar": "https://pic1.imgdb.cn/item/67f21c390ba3d5a1d7ee963b.jpg",
+  "description": "mo的小站",
+  "keywords": "moshiqiqian"
+}
+```
+<!-- endtab -->
+
+
 {% endtabs %}
 
 
@@ -51,12 +52,12 @@ https://image.thum.io/get/allowJPG/wait/20/width/600/crop/950/https://<你的域
 ```
 
 {% note primary flat %}
-本站支持交换友链，在您提出申请之前，请将本站添加至友链
-为了保障本站用户，本站仅支持个人网站的友链申请
-申请本站友链需要拥有独立域名（非免费域名），建议开启全站HTTPS
-如果友情链接已经添加，请保持网站的正常访问，会定期清理僵尸网站
-网站有一定的实质性内容和主题，不能是空壳网站和练手网站
-感谢您对本站的支持，如果您已经满足上述要求，请在下方表单提交友链申请~~~
+🎉本站支持交换友链，在您提出申请之前，请将本站添加至友链
+🥗为了保障本站用户，本站仅支持个人网站的友链申请
+🍧申请本站友链需要拥有独立域名（非免费域名），建议开启全站HTTPS
+🥫如果友情链接已经添加，请保持网站的正常访问，会定期清理僵尸网站
+🍖网站有一定的实质性内容和主题，不能是空壳网站和练手网站
+💕感谢您对本站的支持，如果您已经满足上述要求，请在下方表单提交友链申请~~~
 {% endnote %}
 
 <div class="addBtn"><button onclick="leonus.linkCom()"><i class="fa-solid fa-circle-plus"></i>快速申请 (默认样式)</button> <button onclick="leonus.linkCom(&quot;bf&quot;)"><i class="fa-solid fa-circle-plus"></i>快速申请 (Butterfly)</button></div>
