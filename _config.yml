@@ -110,26 +110,7 @@ search:
   path: search.xml
   field: post
   content: true
-# 标签栏
-# hexo-butterfly-categories-card
-# see https://akilar.top/posts/a9131002/
-categoryBar:
-  enable: true # 开关
-  priority: 6 #过滤器优先权
-  enable_page: / # 应用页面
-  layout: # 挂载容器类型
-    type: id
-    name: recent-posts
-    index: 0
-  column: odd # odd：3列 | even：4列
-  row: 1 #显示行数，默认两行，超过行数切换为滚动显示
-  message:
-    - descr: 教学
-      cover: https://pic1.imgdb.cn/item/67f2203f0ba3d5a1d7ee99de.jpg
-    - descr: 解决问题
-      cover: https://pic1.imgdb.cn/item/67f2203d0ba3d5a1d7ee99dd.jpg
-    
-  custom_css: https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css
+
 
 
 # 首页滚动
@@ -137,7 +118,7 @@ categoryBar:
 # see https://akilar.top/posts/8e1264d1/
 swiper:
   enable: true # 开关
-  priority: 4 #过滤器优先权
+  priority: 0 #过滤器优先权
   enable_page: all # 应用页面
   timemode: date #date/updated
   layout: # 挂载容器类型
@@ -149,6 +130,31 @@ swiper:
   swiper_js: https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js #swiper js依赖
   custom_css: https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css # 适配主题样式补丁
   custom_js: https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js # swiper初始化方法
+
+
+# 标签栏
+# hexo-butterfly-categories-card
+# see https://akilar.top/posts/a9131002/
+categoryBar:
+  enable: true # 开关
+  priority: 3 #过滤器优先权
+  enable_page: / # 应用页面
+  layout: # 挂载容器类型
+    type: id
+    name: recent-posts
+    index: 3
+  column: odd # odd：3列 | even：4列
+  row: 1 #显示行数，默认两行，超过行数切换为滚动显示
+  message:
+    - descr: 教学
+      cover: https://pic1.imgdb.cn/item/67f2203f0ba3d5a1d7ee99de.jpg
+    - descr: 解决问题
+      cover: https://pic1.imgdb.cn/item/67f2203d0ba3d5a1d7ee99dd.jpg
+    
+  custom_css: https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css
+
+
+
 # 动画
 wowjs:
   enable: true #控制动画开关。true是打开，false是关闭

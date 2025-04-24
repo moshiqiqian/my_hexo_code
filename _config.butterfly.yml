@@ -17,19 +17,19 @@ nav:
   fixed: false
 
 menu:
-  首页: / || icon-shouye || faa-tada
-  文章 || icon-16 || faa-tada || hide:
-    归档: /archives/ || icon-guidang || faa-tada
-    标签: /tags/ || icon-24gf-tags2 || faa-tada
-    分类: /categories/ || icon-fenlei || faa-tada
-  社交 || icon-13 || faa-tada || hide:
-    留言板: /comments/ || icon-liuyanban-xian || faa-tada
-    友人帐: /social/link/ || icon-lianjie || faa-tada
-    说说: /social/shuoshuo/ || icon-shuoshuo || faa-tada
-  关于 || icon-guanyu || faa-tada || hide:
-    关于本站: /personal/about/ || icon-wangzhan || faa-tada
-    关于个人: /personal/person || icon-geren || faa-tada
-  # 恋爱小屋：|| icon-aiqingqinglv || faa-tada 
+  首页: / || fa-solid fa-house || faa-tada
+  文章 ||fa-solid fa-newspaper || faa-tada || hide:
+    归档: /archives/ || fa-solid fa-bars || faa-tada
+    标签: /tags/ ||fa-solid fa-tags || faa-tada
+    分类: /categories/ ||fa-solid fa-server || faa-tada
+  社交 || fa-solid fa-address-card || faa-tada || hide:
+    留言板: /comments/ || fa-solid fa-file-invoice|| faa-tada
+    友人帐: /social/link/ || fa-solid fa-sign-hanging || faa-tada
+    说说: /social/shuoshuo/ || fa-solid fa-star-of-david || faa-tada
+  关于 || fa-solid fa-gem || faa-tada || hide:
+    关于本站: /personal/about/ || fa-solid fa-tv || faa-tada
+    关于个人: /personal/person || fa-solid fa-blender || faa-tada
+  # 恋爱小屋：|| fa-solid fa-shield-heart || faa-tada 
 
 # --------------------------------------
 # Code Blocks Settings
