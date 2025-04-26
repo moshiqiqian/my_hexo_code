@@ -17,7 +17,7 @@
 /* 首页文章卡片 */
 #recent-posts .recent-post-item {
   background: var(--trans-light);
-  backdrop-filter: var(--backdrop-filter);
+  backdrop-filter: var(--backdrop-filter); /* 背景模糊效果 */
   border-radius: 25px;
   border: var(--border-style);
 }
@@ -38,6 +38,21 @@ div#archive {
   backdrop-filter: var(--backdrop-filter);
   border: var(--border-style);
   border-radius: 20px;
+}
+/* 置顶滚动栏电脑端样式，手机端用默认的 */
+@media screen and (min-width: 600px) {
+  .blog-slider {
+    height: 260px !important;
+  }
+  .blog-slider__img {
+    width: 350px !important;
+    height: 100% !important;
+  }
+}
+
+/* 置顶滚动圆角 */
+.blog-slider__img img {
+  border-radius: 20px !important;
 }
 
 /* 导航栏 */
