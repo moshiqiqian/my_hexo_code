@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>解决sourcetree这是一个无效源路径/URL</title>
+      <link href="/2025/04/26/2025-04-26-%E8%A7%A3%E5%86%B3sourcetree%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E6%97%A0%E6%95%88%E6%BA%90%E8%B7%AF%E5%BE%84/"/>
+      <url>/2025/04/26/2025-04-26-%E8%A7%A3%E5%86%B3sourcetree%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E6%97%A0%E6%95%88%E6%BA%90%E8%B7%AF%E5%BE%84/</url>
+      
+        <content type="html"><![CDATA[<h2 id="SourceTree这是一个无效源路径-URL的解决方法"><a href="#SourceTree这是一个无效源路径-URL的解决方法" class="headerlink" title="SourceTree这是一个无效源路径&#x2F;URL的解决方法"></a>SourceTree这是一个无效源路径&#x2F;URL的解决方法</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在使用sourcetree的时候,可能会出现.</p><p><img src="https://raw.githubusercontent.com/moshiqiqian/picture/main/picture/20250426234612.png" alt="20250426234612"></p><p>网络上很多教程,例如使用内置的git,或者更新自己的git,但是发现按着教程做完之后,都不能很好的解决问题,本文章介绍一个百分百成功,并且一劳永逸的方法!</p><h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h3><ol><li>执行以下命令生成ssh公钥，此公钥用于你的计算机连接Github</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;你的邮箱&quot;</span><br></pre></td></tr></table></figure><p>之后打开C盘下用户文件夹下的.ssh的文件夹，会看到 id_rsa.pub,用记事本打开,复制代码.</p><ol start="2"><li>将 SSH KEY 配置到 GitHub</li></ol><p>进入github，点击右上角头像 选择<code>settings</code>，进入设置页后选择 <code>SSH and GPG keys</code>，名字随便起，公钥填到<code>Key</code>那一栏.</p><ol start="3"><li>测试连接，输入以下命令</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure><p>出现如下信息代表成功</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hi &#x27;你的名字&#x27;! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="配置sourcetree"><a href="#配置sourcetree" class="headerlink" title="配置sourcetree"></a>配置sourcetree</h3><p>点击工具,随后点击选项</p><p>找到ssh客户端配置,将ssh客户端选项换成OpenSSH,这时候SSH密钥会自动弹出你的SSH的地址,如果没有或者错误,请自行找到,选择正确的文件.<br><img src="https://raw.githubusercontent.com/moshiqiqian/picture/main/picture/20250426234737.png" alt="20250426234737"></p><p>这时候在试一下,是否可以克隆成功,注意要使用SSH协议来clon.<br><img src="https://raw.githubusercontent.com/moshiqiqian/picture/main/picture/20250426234834.png" alt="20250426234834"></p><p><img src="https://raw.githubusercontent.com/moshiqiqian/picture/main/picture/20250426234919.png" alt="20250426234919"></p><p>大功告成!</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 解决问题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> source tree </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>如何clon项目为自己所用</title>
       <link href="/2025/04/07/2025-04-07-%E5%B0%86%E5%85%8B%E9%9A%86%E7%9A%84GitHub%E4%BB%93%E5%BA%93%E6%8E%A8%E9%80%81%E5%88%B0%E8%87%AA%E5%B7%B1%E7%9A%84%E6%96%B0%E4%BB%93%E5%BA%93%EF%BC%8C%E5%B9%B6%E4%B8%94%E4%B8%8D%E4%BF%9D%E7%95%99%E4%B9%8B%E5%89%8D%E7%9A%84%E6%8E%A8%E9%80%81%E6%97%A5%E5%BF%97/"/>
       <url>/2025/04/07/2025-04-07-%E5%B0%86%E5%85%8B%E9%9A%86%E7%9A%84GitHub%E4%BB%93%E5%BA%93%E6%8E%A8%E9%80%81%E5%88%B0%E8%87%AA%E5%B7%B1%E7%9A%84%E6%96%B0%E4%BB%93%E5%BA%93%EF%BC%8C%E5%B9%B6%E4%B8%94%E4%B8%8D%E4%BF%9D%E7%95%99%E4%B9%8B%E5%89%8D%E7%9A%84%E6%8E%A8%E9%80%81%E6%97%A5%E5%BF%97/</url>

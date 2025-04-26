@@ -200,7 +200,7 @@ index_layout: 6
 index_post_content: 
   method: false
   # If you set method to 2 or 3, the length need to config
-  length: 
+  length: 10
 
 # --------------------------------------
 # Post Settings
