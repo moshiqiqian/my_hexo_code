@@ -13,6 +13,11 @@ const getStyle = (el, attr) => {
 
 class Cursor {
     constructor() {
+        if (window.innerWidth <= 768) {
+            // 如果是手机端，不初始化鼠标样式
+            return;
+        }
+
         this.pos = {curr: null, prev: null};
         this.pt = []; // 恢复最初的 pt 逻辑
         this.create();
@@ -74,11 +79,11 @@ class Cursor {
         // ========================================
 
         // 恢复最初的 mouseover/mouseout 逻辑 (依赖 pt)
-        document.onmouseover  = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.add("hover");
-        document.onmouseout   = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.remove("hover");
+        document.onmouseover  = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.add("hover");
+        document.onmouseout   = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.remove("hover");
 
         // === 修改 mousemove 逻辑，使用 zoom 修正坐标 ===
-        document.onmousemove  = e => {
+        document.onmousemove  = e => {
             const zoomLevel = getZoomLevel(); // 获取 zoom 级别
             // 计算修正后的坐标：原始坐标除以 zoom 级别
             // 然后减去 8px 的偏移以使光标中心对准指针
@@ -101,8 +106,8 @@ class Cursor {
         document.onmouseenter = e => this.cursor.classList.remove("hidden");
         document.onmouseleave = e => this.cursor.classList.add("hidden");
         // 保留 mousedown 和 mouseup，控制 active 状态
-        document.onmousedown  = e => this.cursor.classList.add("active");
-        document.onmouseup    = e => this.cursor.classList.remove("active");
+        document.onmousedown  = e => this.cursor.classList.add("active");
+        document.onmouseup    = e => this.cursor.classList.remove("active");
     }
 
     render() {
