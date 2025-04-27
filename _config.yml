@@ -195,3 +195,9 @@ envelope_comment:
   front_matter:  #【可选】comments页面的 front_matter 配置
     title: 留言板
     comments: true
+# 文章链接
+abbrlink:
+  alg: crc32  # 算法类型，可选值：crc16、crc32、md5、sha1、sha256
+  rep: hex    # 表示方式，可选值：hex（十六进制）、dec（十进制）
+  len: 8      # 链接长度
+  auto: true  # 是否自动为新文章生成 abbrlink

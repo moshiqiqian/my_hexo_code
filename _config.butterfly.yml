@@ -402,8 +402,8 @@ darkmode:
   # autoChangeMode: false
   autoChangeMode: false
   # Set the light mode time. The value is between 0 and 24. If not set, the default value is 6 and 18
-  start:
-  end:
+  start: 19
+  end: 7
 
 # Show scroll percent in scroll-to-top button
 rightside_scroll_percent: true
@@ -424,7 +424,7 @@ rightside_item_order:
 
 anchor:
   # When you scroll, the URL will update according to header id.
-  auto_update: false
+  auto_update: true
   # Click the headline to scroll and update the anchor
   click_to_scroll: false
 
