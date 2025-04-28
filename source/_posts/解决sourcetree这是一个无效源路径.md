@@ -14,7 +14,7 @@ date: 2025-04-26 23:50:33
 
 在使用sourcetree的时候,可能会出现.
 
-![20250426234612](https://raw.githubusercontent.com/moshiqiqian/picture/main/picture/20250426234612.png)
+![image](https://moshiqiqian.github.io/picx-images-hosting/image.32i62f8s0l.webp)
 
 网络上很多教程,例如使用内置的git,或者更新自己的git,但是发现按着教程做完之后,都不能很好的解决问题,本文章介绍一个百分百成功,并且一劳永逸的方法!
 
@@ -47,14 +47,14 @@ Hi '你的名字'! You've successfully authenticated, but GitHub does not provid
 
 ### 配置sourcetree
 
-点击工具,随后点击选项
+点击工具->选项
 
 找到ssh客户端配置,将ssh客户端选项换成OpenSSH,这时候SSH密钥会自动弹出你的SSH的地址,如果没有或者错误,请自行找到,选择正确的文件.
-![20250426234737](https://raw.githubusercontent.com/moshiqiqian/picture/main/picture/20250426234737.png)
+![image](https://moshiqiqian.github.io/picx-images-hosting/image.9gwry0uxz3.webp)
 
 这时候在试一下,是否可以克隆成功,注意要使用SSH协议来clon.
-![20250426234834](https://raw.githubusercontent.com/moshiqiqian/picture/main/picture/20250426234834.png)
+![image](https://moshiqiqian.github.io/picx-images-hosting/image.8ojwgaexav.webp)
 
-![20250426234919](https://raw.githubusercontent.com/moshiqiqian/picture/main/picture/20250426234919.png)
+![image](https://moshiqiqian.github.io/picx-images-hosting/image.7p3t34dcp8.webp)
 
 大功告成!
