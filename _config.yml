@@ -14,7 +14,7 @@ timezone: ''
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://moshiqiqian.github.io
-permalink: :year/:month/:day/:title/
+# permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -150,6 +150,8 @@ categoryBar:
       cover: https://pic1.imgdb.cn/item/67f2203f0ba3d5a1d7ee99de.jpg
     - descr: 解决问题
       cover: https://pic1.imgdb.cn/item/67f2203d0ba3d5a1d7ee99dd.jpg
+    - descr: 工具推荐
+      cover: https://pic1.imgdb.cn/item/680f9e1f58cb8da5c8d272b6.png
     
   custom_css: https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css
 
@@ -196,6 +198,7 @@ envelope_comment:
     title: 留言板
     comments: true
 # 文章链接
+permalink: post/:abbrlink.html
 abbrlink:
   alg: crc32  # 算法类型，可选值：crc16、crc32、md5、sha1、sha256
   rep: hex    # 表示方式，可选值：hex（十六进制）、dec（十进制）
