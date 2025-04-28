@@ -6,9 +6,9 @@ categories:
   - 解决问题
 mathjax: true
 description: 通过git指令将克隆的GitHub仓库推送到自己的新仓库，并且不保留之前的推送日志
-date: 2025-04-07 21:24:59
 swiper_index: 1
-
+abbrlink: bf2768f1
+date: 2025-04-07 21:24:59
 ---
 ## 如何克隆新项目为自己所用
 
