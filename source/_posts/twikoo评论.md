@@ -13,7 +13,7 @@ date: 2025-04-30 19:09:48
 ---
 ## Twikoo评论系统
 
-### 一、注册MongoDB
+### 注册MongoDB
 
 网址：[MongoDB](https://www.mongodb.com/cloud/atlas/register)
 
@@ -69,7 +69,7 @@ date: 2025-04-30 19:09:48
 
 ![image](https://moshiqiqian.github.io/picx-images-hosting/image.99tk59r8ac.webp)
 
-### 二、vercel部署
+### vercel部署
 
 首先注册vercel，直接github登录就行
 
@@ -128,7 +128,7 @@ date: 2025-04-30 19:09:48
 
 ![image](https://moshiqiqian.github.io/picx-images-hosting/image.lvxq5v14e.webp)
 
-### 三、博客部署
+### 博客部署
 
 - 粘贴网址到这里，之后hexo 三连就行
 
@@ -137,7 +137,7 @@ date: 2025-04-30 19:09:48
 
 
 
-### 四、删除MingoDB
+### 删除MingoDB
 
 ![image](https://moshiqiqian.github.io/picx-images-hosting/image.4qrj29sw22.webp)
 
