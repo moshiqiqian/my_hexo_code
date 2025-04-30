@@ -33,7 +33,7 @@ date: 2025-04-30 19:09:48
 
 - 不需要加入别的成员，直接创建
 
-![image](https://moshiqiqian.github.io/picx-images-hosting/image.1e8t7wq4s4.webp))
+![image](https://moshiqiqian.github.io/picx-images-hosting/image.1e8t7wq4s4.webp)
 
 - 接下来构建集群
 
