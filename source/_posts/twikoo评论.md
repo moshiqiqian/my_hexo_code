@@ -13,7 +13,7 @@ date: 2025-04-30 19:09:48
 ---
 ## Twikoo评论系统
 
-### 注册MongoDB
+### 一、注册MongoDB
 
 网址：[MongoDB](https://www.mongodb.com/cloud/atlas/register)
 
@@ -33,7 +33,7 @@ date: 2025-04-30 19:09:48
 
 - 不需要加入别的成员，直接创建
 
-![image](https://moshiqiqian.github.io/picx-images-hosting/image.1e8t7wq4s4.webp)
+![image](https://moshiqiqian.github.io/picx-images-hosting/image.1e8t7wq4s4.webp))
 
 - 接下来构建集群
 
@@ -59,21 +59,19 @@ date: 2025-04-30 19:09:48
 
 ![image](https://moshiqiqian.github.io/picx-images-hosting/image.6pnpsmnuiv.webp)
 
-- 如图
-
-![image](https://moshiqiqian.github.io/picx-images-hosting/image.b93x171de.webp)
-
 - 选择Divers，Node.js，别关掉页面，接下来要用划线代码
+
+![image](https://moshiqiqian.github.io/picx-images-hosting/image.4qrj2ig5ci.webp)
 
 ![image](https://moshiqiqian.github.io/picx-images-hosting/image.b93x171de.webp)
 
 ![image](https://moshiqiqian.github.io/picx-images-hosting/image.99tk59r8ac.webp)
 
-### vercel部署
+### 二、vercel部署
 
 首先注册vercel，直接github登录就行
 
-打开网站：[云函数部署 | Twikoo 文档](https://twikoo.js.org/backend.html#vercel-部署)
+打开网站：[[云函数部署 | Twikoo 文档]](https://twikoo.js.org/backend.html#vercel-部署)
 
 - 点击vercel部署
 
@@ -83,13 +81,15 @@ date: 2025-04-30 19:09:48
 
 ![image](https://moshiqiqian.github.io/picx-images-hosting/image.9dd62yb7sm.webp)
 
-![image](https://moshiqiqian.github.io/picx-images-hosting/image.7w71177goi.webp)
+- 添加github账户,起一个名字为你的仓库
+
+![image](https://moshiqiqian.github.io/picx-images-hosting/image.6ikhxexgu7.webp)
 
 ![image](https://moshiqiqian.github.io/picx-images-hosting/image.77drh6k9xc.webp)
 
-![image](https://moshiqiqian.github.io/picx-images-hosting/image.77drh6k9xc.webp)
 
-![image](https://moshiqiqian.github.io/picx-images-hosting/image.9dd62yenek.webp)
+
+
 
 - 等待至出现以下页面
 
@@ -102,7 +102,7 @@ date: 2025-04-30 19:09:48
 ![image](https://moshiqiqian.github.io/picx-images-hosting/image.8adgs2s127.webp)
 
 - key：MONGODB_URI
-- value：上文提到的代码注意要把<db_password>换成自己设置的密码（尖括号也要去带）
+- value：上文提到的代码注意要把<db_password>换成自己设置的密码（尖括号也要去掉）
 - save
 
 ![image](https://moshiqiqian.github.io/picx-images-hosting/image.8s3ignu2il.webp)
@@ -111,6 +111,8 @@ date: 2025-04-30 19:09:48
 - Save
 
 ![image](https://moshiqiqian.github.io/picx-images-hosting/image.pfjnvm8e8.webp)
+
+- 部署
 
 ![image](https://moshiqiqian.github.io/picx-images-hosting/image.60ug8l8nbq.webp)
 
@@ -128,16 +130,21 @@ date: 2025-04-30 19:09:48
 
 ![image](https://moshiqiqian.github.io/picx-images-hosting/image.lvxq5v14e.webp)
 
-### 博客部署
+### 三、博客部署
 
-- 粘贴网址到这里，之后hexo 三连就行
+- 修改为twikoo
+
+![image](https://moshiqiqian.github.io/picx-images-hosting/image.lvxqenv1j.webp)
+
+- 粘贴网址到这里，之后hexo 三连就行(在终端里hexo cl;hexo g;hexo d)
 
 ![image](https://moshiqiqian.github.io/picx-images-hosting/image.2yyk7d9ahk.webp)
 
 
 
 
-### 删除MingoDB
+### 四、删除MingoDB
+- 如图
 
 ![image](https://moshiqiqian.github.io/picx-images-hosting/image.4qrj29sw22.webp)
 
