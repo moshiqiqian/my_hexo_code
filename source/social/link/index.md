@@ -2,6 +2,7 @@
 title: 友人帐
 date: 2025-04-12 12:00:00
 type: "link"
+layout: page
 ---
 ## 本站友链添加方式：
 {% tabs link %}
