@@ -1,14 +1,17 @@
+
 :root {
-  --trans-light: rgba(255, 255, 255, 0.88);  /* 浅色透明背景 */
-  --trans-dark: rgba(25, 25, 25, 0.88);     /* 深色透明背景 */
-  --border-style: 0px solid rgb(169, 169, 169); /* 边框样式 */
-  --backdrop-filter: blur(5px) saturate(150%); /* 背景模糊效果 */
+  --trans-light: rgba(255, 255, 255, 0.88);
+  --trans-dark: rgba(25, 25, 25, 0.88);
+  --border-style: 0px solid rgb(169, 169, 169);
+  --backdrop-filter: blur(5px) saturate(150%);
+  --card-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  --card-hover-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 /* 自定义图标 */
 .iconfont {
   font-family: "iconfont" !important;
-  font-size: 3em; /* 这里可以自定义图标大小 */
+  font-size: 3em;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17,9 +20,16 @@
 /* 首页文章卡片 */
 #recent-posts .recent-post-item {
   background: var(--trans-light);
-  backdrop-filter: var(--backdrop-filter); /* 背景模糊效果 */
+  backdrop-filter: var(--backdrop-filter);
   border-radius: 25px;
   border: var(--border-style);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#recent-posts .recent-post-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-hover-shadow);
 }
 
 /* 首页侧栏卡片 */
@@ -28,6 +38,13 @@
   backdrop-filter: var(--backdrop-filter);
   border-radius: 18px;
   border: var(--border-style);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#aside-content .card-widget:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-hover-shadow);
 }
 
 /* 文章页、归档页、普通页面 */
@@ -38,7 +55,17 @@ div#archive {
   backdrop-filter: var(--backdrop-filter);
   border: var(--border-style);
   border-radius: 20px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
+
+div#post:hover,
+div#page:hover,
+div#archive:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-hover-shadow);
+}
+
 /* 置顶滚动栏电脑端样式，手机端用默认的 */
 @media screen and (min-width: 600px) {
   .blog-slider {
@@ -59,6 +86,7 @@ div#archive {
 #page-header.nav-fixed #nav {
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: var(--backdrop-filter);
+  transition: background 0.3s;
 }
 
 /* 夜间模式导航栏 */
@@ -73,6 +101,7 @@ div#archive {
 [data-theme="dark"] div#archive,
 [data-theme="dark"] div#page {
   background: var(--trans-dark);
+  box-shadow: var(--card-shadow);
 }
 
 /* 夜间模式页脚页头遮罩透明 */
@@ -83,6 +112,7 @@ div#archive {
 [data-theme="dark"] #page-header::before {
   background: transparent !important;
 }
+
 
 
 /*卡片美化end*/
