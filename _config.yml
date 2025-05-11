@@ -124,7 +124,7 @@ swiper:
   layout: # 挂载容器类型
     type: id
     name: recent-posts
-    index: 0
+    index: 100
   default_descr: 再怎么看我也不知道怎么描述它的啦！
   swiper_css: https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css #swiper css依赖
   swiper_js: https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js #swiper js依赖
@@ -142,7 +142,7 @@ categoryBar:
   layout: # 挂载容器类型
     type: id
     name: recent-posts
-    index: 3
+    index: 0
   column: odd # odd：3列 | even：4列
   row: 1 #显示行数，默认两行，超过行数切换为滚动显示
   message:
