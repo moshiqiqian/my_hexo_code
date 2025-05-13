@@ -127,10 +127,10 @@ shift加tab取消缩进
 ### 单行代码(Inline code.)
 
 ~~~
-~单行代码~
+`单行代码`
 ~~~
 
-这是一段~单行代码~的样子
+这是一段`单行代码`的样子
 
 **注意** ：单行代码可以在任意位置使用
 
@@ -156,12 +156,13 @@ shift加tab取消缩进
 [超链接](网址)
 ~~~
 
-[girhub](https://github.com/)
+[github](https://github.com/)
 
 ### 高级超链接(Advanced hyperlink.)
 
 ~~~
 [网站名称][变量]
+[1]:网址
 ~~~
 
 [github][1]
@@ -176,7 +177,7 @@ shift加tab取消缩进
 
 脚注[^1]
 
-[^1]:脚注
+[^1]: 脚注
 
 
 
@@ -209,7 +210,7 @@ shift加tab取消缩进
 ### 获取图床
 
 * 使用现成的图床网站。[聚合图床 - 免费无限图片上传 ](https://www.superbed.cn/)
-* 自己搭建图床。[搭建图床教程](https://eryinote.com/post/105)
+* 自己搭建图床。[搭建图床教程](https://moshiqiqian.github.io/post/7d6919a5.html)
 
 
 
@@ -241,7 +242,4 @@ shift加tab取消缩进
 | a      |    b     |      c |
 
 
-
-[^2]:
-[^2]:DWIJIODJWA AWLDJWAIOJD
 
