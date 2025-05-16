@@ -2,7 +2,7 @@
 :root {
   --trans-light: rgba(255, 255, 255, 0.88);
   --trans-dark: rgba(25, 25, 25, 0.88);
-  --border-style: 0px solid rgb(169, 169, 169);
+  --border-style: 0.01px solid rgb(0, 0, 0, 0.01);
   --backdrop-filter: blur(5px) saturate(150%);
   --card-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   --card-hover-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
