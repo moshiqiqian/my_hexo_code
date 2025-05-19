@@ -4,6 +4,7 @@ tags:
   - markdown
 categories:
   - 教学
+  - markdown
 mathjax: true
 description: 简单的markdown语法教学，包括平时常用的语法格式以及示例
 abbrlink: eed5a137
