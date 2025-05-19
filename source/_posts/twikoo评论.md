@@ -7,7 +7,6 @@ categories:
   
 mathjax: true
 description: 简单的markdown语法教学，包括平时常用的语法格式以及示例
-swiper_index: 2
 abbrlink: daeb7f65
 date: 2025-04-30 19:09:48
 ---

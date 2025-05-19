@@ -6,7 +6,6 @@ categories:
   - 教学
 mathjax: true
 description: 简单的markdown语法教学，包括平时常用的语法格式以及示例
-swiper_index: 2
 abbrlink: eed5a137
 date: 2025-04-07 21:22:51
 ---

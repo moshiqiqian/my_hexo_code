@@ -5,7 +5,6 @@ tags:
 categories:
   - 解决问题
 description: 通过SSH连接来解决sourcetree这是一个无效源路径/URL的问题
-swiper_index: 3
 abbrlink: ed8acac5
 date: 2025-04-26 23:50:33
 ---
