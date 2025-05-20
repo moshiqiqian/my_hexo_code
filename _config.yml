@@ -132,31 +132,6 @@ swiper:
   custom_js: https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js # swiper初始化方法
 
 
-# 标签栏
-# hexo-butterfly-categories-card
-# see https://akilar.top/posts/a9131002/
-categoryBar:
-  enable: true # 开关
-  priority: 100 #过滤器优先权
-  enable_page: / # 应用页面
-  layout: # 挂载容器类型
-    type: id
-    name: recent-posts
-    index: 0
-  column: odd # odd：3列 | even：4列
-  row: 1 #显示行数，默认两行，超过行数切换为滚动显示
-  message:
-    - descr: 教学
-      cover: https://pic1.imgdb.cn/item/67f2203f0ba3d5a1d7ee99de.jpg
-    - descr: 解决问题
-      cover: https://pic1.imgdb.cn/item/67f2203d0ba3d5a1d7ee99dd.jpg
-    - descr: 工具推荐
-      cover: https://pic1.imgdb.cn/item/680f9e1f58cb8da5c8d272b6.png
-    
-  custom_css: https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css
-
-
-
 # 动画
 wowjs:
   enable: true #控制动画开关。true是打开，false是关闭
