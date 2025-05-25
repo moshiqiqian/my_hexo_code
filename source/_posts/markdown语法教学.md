@@ -4,6 +4,7 @@ tags:
   - markdown
 categories:
   - 教学
+  - 计算机基础
   - markdown
 mathjax: true
 description: 简单的markdown语法教学，包括平时常用的语法格式以及示例

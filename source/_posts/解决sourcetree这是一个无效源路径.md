@@ -8,8 +8,10 @@ categories:
 description: 通过SSH连接来解决sourcetree这是一个无效源路径/URL的问题
 abbrlink: ed8acac5
 date: 2025-04-26 23:50:33
+
 ---
-\## SourceTree这是一个无效源路径/URL的解决方法
+
+## SourceTree这是一个无效源路径/URL的解决方法
 
 ### 前言
 
@@ -18,6 +20,26 @@ date: 2025-04-26 23:50:33
 ![image](https://moshiqiqian.github.io/picx-images-hosting/修复SourceTree无效源路径/URL问题/image.6f0wrwa64h.webp)
 
 网络上有很多教程，例如使用内置的 Git，或者更新自己的 Git，但发现按照教程做完之后，都不能很好地解决问题。本文介绍一个百分百成功，并且一劳永逸的方法！
+
+### 配置git
+
+1. 打开Git Bash，执行以下命令连接你的github
+
+   ~~~
+   git config --global user.name "你的用户名"
+   git config --global user.email "你的邮箱"
+   ~~~
+
+2. 检查是否成功
+
+   ~~~
+   git config -l
+   ~~~
+
+   若成功则会出现自己所设置的user.name和user.email。
+
+   ![image](https://moshiqiqian.github.io/picx-images-hosting/修复SourceTree无效源路径/URL问题/image.8ojxieuue0.webp)
+
 
 ### 配置 SSH
 
@@ -40,8 +62,6 @@ date: 2025-04-26 23:50:33
    ```
    ssh -T git@github.com
    ```
-
-   
 
    出现如下信息代表成功：
 
