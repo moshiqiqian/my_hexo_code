@@ -180,7 +180,7 @@ abbrlink:
   len: 8      # 链接长度
   auto: true  # 是否自动为新文章生成 abbrlink
 
-# _config.yml
+# _markdown-it
 markdown:
   render:
     html: true
@@ -196,5 +196,3 @@ markdown:
     - markdown-it-sub
     - markdown-it-sup
     - markdown-it-mark
-  # MathJax/KaTeX 相关设置
-  # 例如，如果你使用 \$ 为行内公式，\$\$ 为块级公式
