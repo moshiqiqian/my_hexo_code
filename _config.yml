@@ -180,19 +180,21 @@ abbrlink:
   len: 8      # 链接长度
   auto: true  # 是否自动为新文章生成 abbrlink
 
-# _markdown-it
-markdown:
+# 替换掉原来的 markdown: 配置块
+markdown_it_plus:
+  enable: true # 确保启用
+  plugins:
+    # 确保 KaTeX 插件已启用。这个配置是正确的，它显式地加载了 KaTeX 插件
+    - plugin:
+        name: '@neilsustc/markdown-it-katex'
+        enable: true
+        options:
+          strict: false # KaTeX 选项，设置为 false 可禁用严格的错误检查
+  # 其他 markdown-it 配置，例如 render 选项等
   render:
     html: true
-    xhtmlOut: false
+    xhtmlOut: false # 如果需要，请从旧的 render 配置中复制过来
     breaks: true
-    linkify: true
-    typographer: true
-    quotes: '“”‘’'
-  plugins:
-    - markdown-it-abbr
-    - markdown-it-footnote
-    - markdown-it-ins
-    - markdown-it-sub
-    - markdown-it-sup
-    - markdown-it-mark
+    linkify: true # 如果需要，请从旧的 render 配置中复制过来
+    typographer: true # 如果需要，请从旧的 render 配置中复制过来
+    quotes: '“”‘’' # 如果需要，请从旧的 render 配置中复制过来
