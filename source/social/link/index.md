@@ -9,10 +9,10 @@ layout: page
 <!-- tab 🙋 butterfly-💭candy -->
 ```yml
     - name: moshiqiqian
-      link: https://moshiqiqian.github.io
-      avatar: https://pic1.imgdb.cn/item/67f21c390ba3d5a1d7ee963b.jpg
+      link: https://moshiqiqian.github.top
+      avatar: https://moshiqiqian.github.io/picx-images-hosting/网站/头像.1apaitx54y.webp
       descr: mo的小站
-      siteshot: https://pic1.imgdb.cn/item/67fe2fd988c538a9b5d1b889.png
+      siteshot: https://moshiqiqian.github.io/picx-images-hosting/网站/站点截图.3yeqt6d3fh.webp
 ```
 <!-- endtab -->
 
@@ -20,10 +20,10 @@ layout: page
 ```JSON
 {
   "title": "moshiqiqian",
-  "screenshot": "https://pic1.imgdb.cn/item/67fe2fd988c538a9b5d1b889.png",
-  "url": "https://moshiqiqian.github.io",
-  "avatar": "https://pic1.imgdb.cn/item/67f21c390ba3d5a1d7ee963b.jpg",
-  "description": "mo的小站",
+  "screenshot": "https://moshiqiqian.github.io/picx-images-hosting/网站/站点截图.3yeqt6d3fh.webp",
+  "url": "https://moshiqiqian.github.top",
+  "avatar": "https://moshiqiqian.github.io/picx-images-hosting/网站/头像.1apaitx54y.webp",
+  "description": "mo的小站"
   "keywords": "moshiqiqian"
 }
 ```

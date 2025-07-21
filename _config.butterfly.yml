@@ -28,8 +28,8 @@ menu:
     说说: /social/shuoshuo/ || fa-solid fa-star-of-david || faa-tada
   关于 || fa-solid fa-gem || faa-tada || hide:
     关于本站: /personal/about/ || fa-solid fa-tv || faa-tada
-    关于个人: /personal/person || fa-solid fa-blender || faa-tada
-  # 恋爱小屋：|| fa-solid fa-shield-heart || faa-tada 
+    关于个人: /personal/person/ || fa-solid fa-blender || faa-tada
+    MO的私货: /personal/MO/ || fa-solid fa-key || faa-tada 
 
 # --------------------------------------
 # Code Blocks Settings
@@ -109,16 +109,18 @@ cover:
   archives_enable: true
   # When cover is not set, the default cover is displayed
   default_cover:
-    - https://pic1.imgdb.cn/item/67f244110ba3d5a1d7eeab4b.jpg
-    - https://pic1.imgdb.cn/item/67f220520ba3d5a1d7ee99f2.jpg
-    - https://pic1.imgdb.cn/item/67f2204f0ba3d5a1d7ee99ee.jpg
-    - https://pic1.imgdb.cn/item/67f2204d0ba3d5a1d7ee99ea.jpg
-    - https://pic1.imgdb.cn/item/67f2204a0ba3d5a1d7ee99e9.jpg
-    - https://pic1.imgdb.cn/item/67f220480ba3d5a1d7ee99e8.jpg
-    - https://pic1.imgdb.cn/item/67f220460ba3d5a1d7ee99e1.jpg
-    - https://pic1.imgdb.cn/item/67f220460ba3d5a1d7ee99e1.jpg
-    - https://pic1.imgdb.cn/item/67f220440ba3d5a1d7ee99e0.jpg
-    - https://pic1.imgdb.cn/item/67f220420ba3d5a1d7ee99df.jpg
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面1.2yyng0a1zz.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面2.2ks7p51smz.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面3.23260k0ghf.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面4.6ikl5uta0g.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面5.54y21tkfmb.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面6.9dd9bnbizv.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面7.8dx5yh9h0a.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面8.67xrcpje4a.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面9.73u8s5tu43.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面10.6wr0wq8eo6.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面11.9gwv9dam9m.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面12.67xrcpnqfg.webp
 
 # Replace Broken Images
 error_img:
