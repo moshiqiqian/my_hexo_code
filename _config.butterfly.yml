@@ -109,19 +109,18 @@ cover:
   archives_enable: true
   # When cover is not set, the default cover is displayed
   default_cover:
-    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面1.2yyng0a1zz.webp
-    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面2.2ks7p51smz.webp
-    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面3.23260k0ghf.webp
-    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面4.6ikl5uta0g.webp
-    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面5.54y21tkfmb.webp
-    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面6.9dd9bnbizv.webp
-    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面7.8dx5yh9h0a.webp
-    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面8.67xrcpje4a.webp
-    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面9.73u8s5tu43.webp
-    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面10.6wr0wq8eo6.webp
-    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面11.9gwv9dam9m.webp
-    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面12.67xrcpnqfg.webp
-
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面1.2yyng5nc4o.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面2.8ojzrqhpnv.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面3.45zad85db.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面4.1hsieej7e8.webp
+    - hhttps://moshiqiqian.github.io/picx-images-hosting/网站/封面5.45hyorc8qc.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面6.8hgrwavk8n.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面7.8ojzrqhpo9.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面8.7pl83183g.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面9.45hyorc8qm.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面10.7pl837n73.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面11.7axgnp6nnl.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面12.7eh2lezqdf.webp
 # Replace Broken Images
 error_img:
   flink: /picture/not_found.jpg

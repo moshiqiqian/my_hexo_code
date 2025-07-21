@@ -10,9 +10,9 @@ layout: page
 ```yml
     - name: moshiqiqian
       link: https://moshiqiqian.github.top
-      avatar: https://moshiqiqian.github.io/picx-images-hosting/网站/头像.1apaitx54y.webp
+      avatar: https://moshiqiqian.github.io/picx-images-hosting/网站/头像.6t7ez45a2v.webp
       descr: mo的小站
-      siteshot: https://moshiqiqian.github.io/picx-images-hosting/网站/站点截图.3yeqt6d3fh.webp
+      siteshot: https://moshiqiqian.github.io/picx-images-hosting/网站/站点截图.8ojzrqhpp2.webp
 ```
 <!-- endtab -->
 
@@ -20,9 +20,9 @@ layout: page
 ```JSON
 {
   "title": "moshiqiqian",
-  "screenshot": "https://moshiqiqian.github.io/picx-images-hosting/网站/站点截图.3yeqt6d3fh.webp",
+  "screenshot": "https://moshiqiqian.github.io/picx-images-hosting/网站/站点截图.8ojzrqhpp2.webp",
   "url": "https://moshiqiqian.github.top",
-  "avatar": "https://moshiqiqian.github.io/picx-images-hosting/网站/头像.1apaitx54y.webp",
+  "avatar": "https://moshiqiqian.github.io/picx-images-hosting/网站/头像.6t7ez45a2v.webp",
   "description": "mo的小站"
   "keywords": "moshiqiqian"
 }
