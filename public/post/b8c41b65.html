@@ -1,0 +1,541 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>机器学习实践 | moshiqiqian</title><meta name="author" content="moshiqiqian"><meta name="copyright" content="moshiqiqian"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="机器学习流程以及简单的实践">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习实践">
+<meta property="og:url" content="https://moshiqiqian.top/post/b8c41b65.html">
+<meta property="og:site_name" content="moshiqiqian">
+<meta property="og:description" content="机器学习流程以及简单的实践">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://moshiqiqian.github.io/picx-images-hosting/%E7%BD%91%E7%AB%99/%E5%B0%81%E9%9D%A28.7pl83183g.webp">
+<meta property="article:published_time" content="2025-05-19T13:09:29.000Z">
+<meta property="article:modified_time" content="2025-07-21T05:31:01.982Z">
+<meta property="article:author" content="moshiqiqian">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="Anaconda">
+<meta property="article:tag" content="Jupyter">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://moshiqiqian.github.io/picx-images-hosting/%E7%BD%91%E7%AB%99/%E5%B0%81%E9%9D%A28.7pl83183g.webp"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "机器学习实践",
+  "url": "https://moshiqiqian.top/post/b8c41b65.html",
+  "image": "https://moshiqiqian.github.io/picx-images-hosting/网站/封面8.7pl83183g.webp",
+  "datePublished": "2025-05-19T13:09:29.000Z",
+  "dateModified": "2025-07-21T05:31:01.982Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "moshiqiqian",
+      "url": "https://moshiqiqian.top/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/picture/favicon.ico"><link rel="canonical" href="https://moshiqiqian.top/post/b8c41b65.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#1a1a1a')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const hour = new Date().getHours()
+          const isNight = hour <= 7 || hour >= 19
+          if (theme === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else theme === 'light' ? activateLightMode() : activateDarkMode()
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '机器学习实践',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="//at.alicdn.com/t/c/font_4892928_90poycgclrw.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/element-ui@2.15.6/lib/theme-chalk/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/picture/封面top.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/picture/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/picture/not_found.jpg'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa-solid fa-house"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-newspaper"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa-solid fa-bars"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa-solid fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa-solid fa-server"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-address-card"></i><span> 社交</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/comments/"><i class="fa-fw fa-solid fa-file-invoice"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/social/link/"><i class="fa-fw fa-solid fa-sign-hanging"></i><span> 友人帐</span></a></li><li><a class="site-page child" href="/social/shuoshuo/"><i class="fa-fw fa-solid fa-star-of-david"></i><span> 说说</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-gem"></i><span> 关于</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/personal/about/"><i class="fa-fw fa-solid fa-tv"></i><span> 关于本站</span></a></li><li><a class="site-page child" href="/personal/person/"><i class="fa-fw fa-solid fa-blender"></i><span> 关于个人</span></a></li><li><a class="site-page child" href="/personal/MO/"><i class="fa-fw fa-solid fa-key"></i><span> MO的私货</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://moshiqiqian.github.io/picx-images-hosting/网站/封面8.7pl83183g.webp);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">moshiqiqian</span></a><a class="nav-page-title" href="/"><span class="site-name">机器学习实践</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa-solid fa-house"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-newspaper"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa-solid fa-bars"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa-solid fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa-solid fa-server"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-address-card"></i><span> 社交</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/comments/"><i class="fa-fw fa-solid fa-file-invoice"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/social/link/"><i class="fa-fw fa-solid fa-sign-hanging"></i><span> 友人帐</span></a></li><li><a class="site-page child" href="/social/shuoshuo/"><i class="fa-fw fa-solid fa-star-of-david"></i><span> 说说</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-gem"></i><span> 关于</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/personal/about/"><i class="fa-fw fa-solid fa-tv"></i><span> 关于本站</span></a></li><li><a class="site-page child" href="/personal/person/"><i class="fa-fw fa-solid fa-blender"></i><span> 关于个人</span></a></li><li><a class="site-page child" href="/personal/MO/"><i class="fa-fw fa-solid fa-key"></i><span> MO的私货</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">机器学习实践</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-05-19T13:09:29.000Z" title="发表于 2025-05-19 21:09:29">2025-05-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-21T05:31:01.982Z" title="更新于 2025-07-21 13:31:01">2025-07-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%99%E5%AD%A6/">教学</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%99%E5%AD%A6/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%99%E5%AD%A6/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="机器学习实践"><a class="markdownIt-Anchor" href="#机器学习实践"></a> 机器学习实践</h2>
+<h3 id="训练流程"><a class="markdownIt-Anchor" href="#训练流程"></a> 训练流程</h3>
+<p><strong>问题定义</strong></p>
+<ul>
+<li><strong>确定目标</strong>：明确问题的具体需求，例如是分类、回归、聚类、预测还是生成任务。</li>
+</ul>
+<p><strong>目标</strong>：获取高质量的数据，并将其转换为适合模型训练的格式。</p>
+<p><strong>数据收集与预处理</strong></p>
+<ul>
+<li><strong>数据收集</strong>：
+<ul>
+<li>确定数据来源（公开数据集、企业内部数据、爬虫等）。</li>
+<li>收集足够的数据以支持模型训练。</li>
+</ul>
+</li>
+<li><strong>数据清洗</strong>：
+<ul>
+<li>去除噪声、重复数据和异常值。</li>
+<li>填补缺失值。</li>
+</ul>
+</li>
+<li><strong>数据标注</strong>（对于有监督学习）：
+<ul>
+<li>对数据进行标注，例如分类标签、边界框等。</li>
+</ul>
+</li>
+</ul>
+<p><strong>模型的选择与训练</strong></p>
+<ul>
+<li><strong>选择算法</strong>：
+<ul>
+<li>根据问题类型选择合适的算法，例如CNN用于图像分类，LSTM用于时间序列预测。</li>
+</ul>
+</li>
+<li><strong>模型架构设计</strong>：
+<ul>
+<li>设计模型的结构，例如层数、神经元数量、激活函数等。</li>
+</ul>
+</li>
+</ul>
+<p><strong>模型评估与优化</strong></p>
+<ul>
+<li>对模型进行深入评估，并优化模型以达到最佳性能。</li>
+</ul>
+<h3 id="环境介绍"><a class="markdownIt-Anchor" href="#环境介绍"></a> 环境介绍</h3>
+<p>Anaconda：是一个流行的开源数据科学平台，主要用于 Python 和 R 编程语言的管理和开发。</p>
+<ul>
+<li><strong>环境管理</strong>
+<ul>
+<li>Anaconda 允许用户创建、管理和切换不同的 Python 或 R 环境。每个环境可以安装不同的包版本，避免包冲突。例如，用户可以在一个环境中安装 Python 3.8 用于数据分析，而在另一个环境中安装 Python 3.10 用于机器学习项目。</li>
+</ul>
+</li>
+<li><strong>包管理</strong>
+<ul>
+<li>它自带了包管理器 Conda，可以方便地安装、更新和卸载各种数据科学相关的包。比如，通过简单的命令 <code>conda install numpy</code>，就可以安装 NumPy 包，而无需担心依赖问题。</li>
+</ul>
+</li>
+</ul>
+<p>Anaconda 的核心价值在于巧妙地将不同项目环境相互隔离，有效避免因环境冲突而导致的运行错误，为开发流程带来极致的清晰与稳定，让开发者能够专注于代码逻辑，无需再为复杂的环境问题而烦恼。</p>
+<h3 id="环境准备"><a class="markdownIt-Anchor" href="#环境准备"></a> 环境准备</h3>
+<p>本实验需要下载Anaconda，并且配置Jupyter Notebook以及安装<code>matplotlib</code>、<code>pandas</code>、<code>sklearn</code>、<code>numpy</code>等包。</p>
+<p><strong>NumPy</strong> (Numerical Python)</p>
+<ul>
+<li><strong>功能</strong>: NumPy是Python中用于科学计算的核心库。它提供了强大的N维数组对象（<code>ndarray</code>），以及用于处理这些数组的各种高效函数。</li>
+</ul>
+<p><strong>Pandas</strong> (Python Data Analysis Library)</p>
+<ul>
+<li><strong>功能</strong>: Pandas是一个强大而灵活的数据分析和数据处理库。它构建在NumPy之上，提供了两种主要的数据结构：<code>Series</code>（一维带标签数组）和<code>DataFrame</code>（二维带标签表格数据）。</li>
+</ul>
+<p><strong>Matplotlib</strong></p>
+<ul>
+<li><strong>功能</strong>: Matplotlib是一个用于创建静态、动态、交互式可视化的Python库。它提供了一套完整的2D绘图功能，也可以扩展到3D绘图。</li>
+</ul>
+<p><strong>Scikit-learn</strong> (Sklearn)</p>
+<ul>
+<li>
+<p><strong>功能</strong>: Scikit-learn是一个免费的机器学习库，提供了各种分类、回归、聚类、降维以及模型选择和预处理工具。</p>
+</li>
+<li>
+<p>安装Anaconda</p>
+</li>
+</ul>
+<p>进入官网：<a target="_blank" rel="noopener" href="https://www.anaconda.com/download/success">Download Now | Anaconda</a> 进行下载，如何下载和配置不多做赘述，网上大把教程。</p>
+<ul>
+<li>在安装好Anaconda后，创建一个新的环境。名字随便起，选择python最新的版本就好。</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://moshiqiqian.github.io/picx-images-hosting/image.4cl42jeqi9.webp" alt="image" /></p>
+<p>点击绿色三角，点击“Open Terminal”。这会进入我们anaconda内置的命令行工具，我们要借助他来安装我们的包。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://moshiqiqian.github.io/picx-images-hosting/image.mav1icmo.webp" alt="image" /></p>
+<p>在命令行工具中依次输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install numpy</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install pandas</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install matplotlib</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install scikit-learn</span><br></pre></td></tr></table></figure>
+<p>在下载过程中建议挂上梯子，若是还不知道怎么挂代理（梯子），请参照文章：<a target="_blank" rel="noopener" href="https://www.moshiqiqian.top/personal/MO/">代理</a>，或者，在anaconda配置别的下载源，这里也不多做赘述。建议直接挂代理，更加稳定方便，在很多地方都用的到。</p>
+<ul>
+<li>配置Jupyter</li>
+</ul>
+<p>是一个功能强大的交互式计算平台，它将代码、文档和可视化结果结合在一起，非常适合数据分析、机器学习和教学等场景。通过 Jupyter，用户可以轻松地进行实验、记录和分享分析过程，极大地提高了工作效率和可读性。</p>
+<p>这里建议直接在VS_Code中配置，这样会在使用Jupyter的时候方便很多，例如，不需要每次都输入命令行来打开文件，可以享受VS_Code的多种插件比如ai，UI也会美观很多，而且与Anaconda环境的使用也很兼容。</p>
+<p>在VS_Code中下载Jupyter插件包。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://moshiqiqian.github.io/picx-images-hosting/image.5fktdh7zh5.webp" alt="image" /></p>
+<p>使用也很简单，在VS_Code中，打开命令面板 （<code>Ctrl+Shift+P</code>）并输入<code>Jupyter: Create New Jupyter Notebook</code> ，选择创建笔记本文件 。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://moshiqiqian.github.io/picx-images-hosting/image.2yykyk5z0r.webp" alt="image" /></p>
+<p>随后点击选择内核来选择您的内核，这里选择你创建好的Anaconda环境，然后开始编码！</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://moshiqiqian.github.io/picx-images-hosting/image.175m3nqkks.webp" alt="image" /></p>
+<h3 id="代码实践"><a class="markdownIt-Anchor" href="#代码实践"></a> 代码实践</h3>
+<p><strong>任务</strong>： 基于数据，建立线性回归模型，预测x = 3.5对应的函数值，评估模型的表现。</p>
+<p>In [21]:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 加载数据</span><br><span class="line">import pandas as pd</span><br><span class="line">data = pd.read_csv(&#x27;test.csv&#x27;)</span><br><span class="line">data.head()</span><br></pre></td></tr></table></figure>
+<p>Out[21]:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right"></th>
+<th style="text-align:right">x</th>
+<th style="text-align:right">y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">9</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">11</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">13</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">15</td>
+</tr>
+</tbody>
+</table>
+<p>In [22]:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># 处理数据</span><br><span class="line">x = data.loc[:,&#x27;x&#x27;]</span><br><span class="line">y = data.loc[:,&#x27;y&#x27;]</span><br><span class="line">print(x,y)</span><br><span class="line">0     1</span><br><span class="line">1     2</span><br><span class="line">2     3</span><br><span class="line">3     4</span><br><span class="line">4     5</span><br><span class="line">5     6</span><br><span class="line">6     7</span><br><span class="line">7     8</span><br><span class="line">8     9</span><br><span class="line">9    10</span><br><span class="line">Name: x, dtype: int64 0     7</span><br><span class="line">1     9</span><br><span class="line">2    11</span><br><span class="line">3    13</span><br><span class="line">4    15</span><br><span class="line">5    17</span><br><span class="line">6    19</span><br><span class="line">7    21</span><br><span class="line">8    23</span><br><span class="line">9    25</span><br><span class="line">Name: y, dtype: int64</span><br></pre></td></tr></table></figure>
+<p>In [23]:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 展示图形</span><br><span class="line">import matplotlib.pyplot as plt </span><br><span class="line">plt.figure() #创建一个空白窗口</span><br><span class="line">plt.scatter(x, y) #创建散点图</span><br><span class="line">plt.show() #展示图形</span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAiwAAAGdCAYAAAAxCSikAAAAOnRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjEwLjAsIGh0dHBzOi8vbWF0cGxvdGxpYi5vcmcvlHJYcgAAAAlwSFlzAAAPYQAAD2EBqD+naQAAKzVJREFUeJzt3X9wVfWd//HXSVzvBefmaugm9wYCRoYue42LpBIBGQRdILSmpbZCZfk17qhDg0uWcYtsdWJ2V9LY0ekXcbNjpwvbTQVml1+h1gywCCkLGjAEjayI09Sweu/GKXJvguYKyfn+QXPlktyQG5LcT26ej5kz4/mcz+fkfb3j3Jefc87nWLZt2wIAADBYSqILAAAAuBYCCwAAMB6BBQAAGI/AAgAAjEdgAQAAxiOwAAAA4xFYAACA8QgsAADAeDckuoD+0tHRoU8++UQul0uWZSW6HAAA0Au2baulpUVZWVlKSYk9j5I0geWTTz5RdnZ2ossAAAB9cPbsWY0ZMybm8aQJLC6XS9LlD5yWlpbgagAAQG+EQiFlZ2dHfsdjSZrA0nkZKC0tjcACAMAQc63bObjpFgAAGI/AAgAAjEdgAQAAxiOwAAAA4xFYAACA8QgsAADAeAQWAABgPAILAAAwXtIsHAcAAPpfe4et2sZzam5pU4bLqfycdKWmDP47++KaYSkrK9OUKVPkcrmUkZGhBQsW6PTp01F9VqxYIcuyorapU6de89zbt2+Xz+eTw+GQz+fTzp074/skAACgX1U3+DWj/IAe/vmbWr21Xg///E3NKD+g6gb/oNcSV2A5dOiQioqK9Oabb2rfvn26dOmS5s6dqwsXLkT1KygokN/vj2y/+c1vejzv0aNHtWjRIi1dulQnT57U0qVLtXDhQr311lvxfyIAAHDdqhv8WllZJ3+wLao9EGzTysq6QQ8tlm3bdl8Hf/rpp8rIyNChQ4c0c+ZMSZdnWM6fP69du3b1+jyLFi1SKBTS66+/HmkrKCjQLbfcoi1btvTqHKFQSG63W8FgkHcJAQBwHdo7bM0oP9AlrHSyJHncTh1ee991Xx7q7e/3dd10GwwGJUnp6elR7QcPHlRGRoa+/vWv69FHH1Vzc3OP5zl69Kjmzp0b1TZv3jwdOXIk5phwOKxQKBS1AQCA61fbeC5mWJEkW5I/2KbaxnODVlOfA4tt21qzZo1mzJih3NzcSPv8+fP1q1/9SgcOHNALL7ygY8eO6b777lM4HI55rkAgoMzMzKi2zMxMBQKBmGPKysrkdrsjW3Z2dl8/CgAAuEJzS+yw0pd+/aHPTwmtWrVK77zzjg4fPhzVvmjRosg/5+bm6q677tK4ceP02muv6cEHH4x5vqtfK23bdo+vml63bp3WrFkT2Q+FQoQWAAD6QYbL2a/9+kOfAssTTzyhqqoq1dTUaMyYMT329Xq9GjdunM6cOROzj8fj6TKb0tzc3GXW5UoOh0MOhyO+wgEAwDXl56TL63YqEGxTdze6dt7Dkp+T3s3RgRHXJSHbtrVq1Srt2LFDBw4cUE5OzjXH/OEPf9DZs2fl9Xpj9pk2bZr27dsX1bZ3715Nnz49nvIAAEA/SE2xVFLok3Q5nFypc7+k0Deo67HEFViKiopUWVmpV199VS6XS4FAQIFAQF988YUkqbW1VU8++aSOHj2q3//+9zp48KAKCwv1ta99Td/97ncj51m2bJnWrVsX2V+9erX27t2r8vJyvf/++yovL9f+/ftVXFzcP58SAADEpSDXq4olefK4oy/7eNxOVSzJU0Fu7ImIgRDXY82x7inZtGmTVqxYoS+++EILFizQiRMndP78eXm9Xs2ePVv/+I//GHV/yaxZs3Trrbdq8+bNkbb//M//1NNPP63f/e53Gj9+vJ577rke73m5Go81AwDQ/wZ6pdve/n5f1zosJiGwAAAw9AzKOiwAAACDgcACAACMR2ABAADGI7AAAADjEVgAAIDxCCwAAMB4BBYAAGA8AgsAADAegQUAABiPwAIAAIxHYAEAAMYjsAAAAOMRWAAAgPEILAAAwHgEFgAAYDwCCwAAMB6BBQAAGI/AAgAAjEdgAQAAxiOwAAAA4xFYAACA8QgsAADAeAQWAABgPAILAAAwHoEFAAAYj8ACAACMd0OiCwAAIBm1d9iqbTyn5pY2Zbicys9JV2qKleiyhiwCCwAA/ay6wa/SPafkD7ZF2rxup0oKfSrI9SawsqGLS0IAAPSj6ga/VlbWRYUVSQoE27Sysk7VDf4EVTa0EVgAAOgn7R22Sveckt3Nsc620j2n1N7RXQ/0hMACAEA/qW0812Vm5Uq2JH+wTbWN5wavqCRBYAEAoJ80t8QOK33ph68QWAAA6CcZLme/9sNXCCwAAPST/Jx0ed1OxXp42dLlp4Xyc9IHs6ykQGABAKCfpKZYKin0SVKX0NK5X1LoYz2WPiCwAADQjwpyvapYkiePO/qyj8ftVMWSPNZh6aO4AktZWZmmTJkil8uljIwMLViwQKdPn44cv3jxotauXas77rhDN910k7KysrRs2TJ98sknPZ538+bNsiyry9bWxk1JAIChpyDXq8Nr79OWR6fq//3gTm15dKoOr72PsHId4lrp9tChQyoqKtKUKVN06dIl/fjHP9bcuXN16tQp3XTTTfr8889VV1enZ555RpMmTdJnn32m4uJiffvb39bx48d7PHdaWlpU+JEkp5ObkgAAQ1NqiqVp40cluoykEVdgqa6ujtrftGmTMjIy9Pbbb2vmzJlyu93at29fVJ+XXnpJ+fn5ampq0tixY2Oe27IseTyeeMoBAADDxHXdwxIMBiVJ6emx73YOBoOyLEs333xzj+dqbW3VuHHjNGbMGD3wwAM6ceJEj/3D4bBCoVDUBgAAklOfA4tt21qzZo1mzJih3Nzcbvu0tbXpqaee0uLFi5WWlhbzXBMnTtTmzZtVVVWlLVu2yOl06p577tGZM2dijikrK5Pb7Y5s2dnZff0oAADAcJZt2316oUFRUZFee+01HT58WGPGjOly/OLFi3rooYfU1NSkgwcP9hhYrtbR0aG8vDzNnDlTGzZs6LZPOBxWOByO7IdCIWVnZysYDMb1twAAQOKEQiG53e5r/n7HdQ9LpyeeeEJVVVWqqamJGVYWLlyoxsZGHThwIO4AkZKSoilTpvQ4w+JwOORwOOKuHQAADD1xXRKybVurVq3Sjh07dODAAeXk5HTp0xlWzpw5o/3792vUqPjvkLZtW/X19fJ6efwLAADEOcNSVFSkV199Vbt375bL5VIgEJAkud1ujRgxQpcuXdL3v/991dXV6de//rXa29sjfdLT03XjjTdKkpYtW6bRo0errKxMklRaWqqpU6dqwoQJCoVC2rBhg+rr6/Xyyy/352cFAABDVFyBpaKiQpI0a9asqPZNmzZpxYoV+t///V9VVVVJku68886oPm+88UZkXFNTk1JSvprcOX/+vB577DEFAgG53W5NnjxZNTU1ys/Pj/PjAACAZNTnm25N09ubdgAAgDl6+/vNu4QAAIDxCCwAAMB4BBYAAGA8AgsAADAegQUAABiPwAIAAIxHYAEAAMYjsAAAAOMRWAAAgPEILAAAwHgEFgAAYDwCCwAAMB6BBQAAGI/AAgAAjEdgAQAAxiOwAAAA492Q6AIAALhSe4et2sZzam5pU4bLqfycdKWmWIkuCwlGYAEAGKO6wa/SPafkD7ZF2rxup0oKfSrI9SawMiQal4QAAEaobvBrZWVdVFiRpECwTSsr61Td4E9QZTABgQUAkHDtHbZK95yS3c2xzrbSPafU3tFdDwwHBBYAQMLVNp7rMrNyJVuSP9im2sZzg1cUjEJgAQAkXHNL7LDSl35IPgQWAEDCZbic/doPyYfAAgBIuPycdHndTsV6eNnS5aeF8nPSB7MsGITAAgBIuNQUSyWFPknqElo690sKfazHMowRWAAARijI9apiSZ487ujLPh63UxVL8liHZZhj4TgAgDEKcr2a4/Ow0i26ILAAAIySmmJp2vhRiS4DhuGSEAAAMB6BBQAAGI/AAgAAjEdgAQAAxiOwAAAA4xFYAACA8QgsAADAeAQWAABgvLgCS1lZmaZMmSKXy6WMjAwtWLBAp0+fjupj27aeffZZZWVlacSIEZo1a5bee++9a557+/bt8vl8cjgc8vl82rlzZ3yfBAAAJK24AsuhQ4dUVFSkN998U/v27dOlS5c0d+5cXbhwIdLn+eef14svvqiNGzfq2LFj8ng8mjNnjlpaWmKe9+jRo1q0aJGWLl2qkydPaunSpVq4cKHeeuutvn8yAACQNCzbtu2+Dv7000+VkZGhQ4cOaebMmbJtW1lZWSouLtbatWslSeFwWJmZmSovL9fjjz/e7XkWLVqkUCik119/PdJWUFCgW265RVu2bOlVLaFQSG63W8FgUGlpaX39SAAAYBD19vf7uu5hCQaDkqT09HRJUmNjowKBgObOnRvp43A4dO+99+rIkSMxz3P06NGoMZI0b968HseEw2GFQqGoDQAAJKc+BxbbtrVmzRrNmDFDubm5kqRAICBJyszMjOqbmZkZOdadQCAQ95iysjK53e7Ilp2d3dePAgAADNfnwLJq1Sq988473V6ysazo14Dbtt2l7XrHrFu3TsFgMLKdPXs2juoBAMBQckNfBj3xxBOqqqpSTU2NxowZE2n3eDySLs+YeL3eSHtzc3OXGZQreTyeLrMp1xrjcDjkcDj6Uj4AABhi4pphsW1bq1at0o4dO3TgwAHl5OREHc/JyZHH49G+ffsibV9++aUOHTqk6dOnxzzvtGnTosZI0t69e3scAwAAho+4ZliKior06quvavfu3XK5XJFZEbfbrREjRsiyLBUXF2v9+vWaMGGCJkyYoPXr12vkyJFavHhx5DzLli3T6NGjVVZWJklavXq1Zs6cqfLycn3nO9/R7t27tX//fh0+fLgfPyoAABiq4gosFRUVkqRZs2ZFtW/atEkrVqyQJP3oRz/SF198oR/+8If67LPPdPfdd2vv3r1yuVyR/k1NTUpJ+WpyZ/r06dq6dauefvppPfPMMxo/fry2bdumu+++u48fCwAAJJPrWofFJKzDAgDA0DMo67AAAAAMBgILAAAwHoEFAAAYj8ACAACMR2ABAADGI7AAAADj9WlpfgCAedo7bNU2nlNzS5syXE7l56QrNaXn97gBQwWBBQCSQHWDX6V7TskfbIu0ed1OlRT6VJDr7WEkMDRwSQgAhrjqBr9WVtZFhRVJCgTbtLKyTtUN/gRVBvQfAgsADGHtHbZK95xSd0uWd7aV7jml9o6kWNQcwxiBBQCGsNrGc11mVq5kS/IH21TbeG7wigIGAIEFAIaw5pbYYaUv/QBTEVgAYAjLcDn7tR9gKgILAAxh+Tnp8rqdivXwsqXLTwvl56QPZllAvyOwAMAQlppiqaTQJ0ldQkvnfkmhj/VYMOQRWABgiCvI9apiSZ487ujLPh63UxVL8liHBUmBheMAIAkU5Ho1x+dhpVskLQILACSJ1BRL08aPSnQZwIDgkhAAADAegQUAABiPwAIAAIxHYAEAAMYjsAAAAOMRWAAAgPEILAAAwHgEFgAAYDwCCwAAMB6BBQAAGI/AAgAAjEdgAQAAxiOwAAAA4xFYAACA8QgsAADAeAQWAABgPAILAAAwXtyBpaamRoWFhcrKypJlWdq1a1fUccuyut1++tOfxjzn5s2bux3T1tYW9wcCAADJJ+7AcuHCBU2aNEkbN27s9rjf74/a/vVf/1WWZel73/tej+dNS0vrMtbpdMZbHgAASEI3xDtg/vz5mj9/fszjHo8nan/37t2aPXu2brvtth7Pa1lWl7EAAADSAN/D8n//93967bXX9Nd//dfX7Nva2qpx48ZpzJgxeuCBB3TixIke+4fDYYVCoagNAAAkpwENLP/2b/8ml8ulBx98sMd+EydO1ObNm1VVVaUtW7bI6XTqnnvu0ZkzZ2KOKSsrk9vtjmzZ2dn9XT4AADCEZdu23efBlqWdO3dqwYIF3R6fOHGi5syZo5deeimu83Z0dCgvL08zZ87Uhg0buu0TDocVDocj+6FQSNnZ2QoGg0pLS4vr7wEAgMQIhUJyu93X/P2O+x6W3vrtb3+r06dPa9u2bXGPTUlJ0ZQpU3qcYXE4HHI4HNdTIgAAGCIG7JLQL37xC33jG9/QpEmT4h5r27bq6+vl9XoHoDIAADDUxD3D0traqg8//DCy39jYqPr6eqWnp2vs2LGSLk/v/Md//IdeeOGFbs+xbNkyjR49WmVlZZKk0tJSTZ06VRMmTFAoFNKGDRtUX1+vl19+uS+fCQAAJJm4A8vx48c1e/bsyP6aNWskScuXL9fmzZslSVu3bpVt23r44Ye7PUdTU5NSUr6a3Dl//rwee+wxBQIBud1uTZ48WTU1NcrPz4+3PACIW3uHrdrGc2puaVOGy6n8nHSlpliJLgvAFa7rpluT9PamHQC4UnWDX6V7Tskf/Gplba/bqZJCnwpyuSwNDLTe/n7zLiEAw1Z1g18rK+uiwookBYJtWllZp+oGf4IqA3A1AguAYam9w1bpnlPqboq5s610zym1dyTFJDQw5BFYAAxLtY3nusysXMmW5A+2qbbx3OAVBSAmAguAYam5pXdvg+9tPwADi8ACYFjKcPXubfC97QdgYBFYAAxL+Tnp8rqdivXwsqXLTwvl56QPZlkAYiCwABiWUlMslRT6JKlLaOncLyn0sR4LYAgCC4BhqyDXq4olefK4oy/7eNxOVSzJYx0WwCAD9vJDABgKCnK9muPzsNItYDgCC4BhLzXF0rTxoxJdBoAecEkIAAAYj8ACAACMR2ABAADGI7AAAADjEVgAAIDxCCwAAMB4BBYAAGA8AgsAADAegQUAABiPwAIAAIxHYAEAAMYjsAAAAOMRWAAAgPEILAAAwHgEFgAAYDwCCwAAMB6BBQAAGI/AAgAAjEdgAQAAxiOwAAAA4xFYAACA8QgsAADAeAQWAABgPAILAAAwHoEFAAAY74ZEFwBg6GrvsFXbeE7NLW3KcDmVn5Ou1BQr0WUBSEJxz7DU1NSosLBQWVlZsixLu3btijq+YsUKWZYVtU2dOvWa592+fbt8Pp8cDod8Pp927twZb2kABlF1g18zyg/o4Z+/qdVb6/Xwz9/UjPIDqm7wJ7o0AEko7sBy4cIFTZo0SRs3bozZp6CgQH6/P7L95je/6fGcR48e1aJFi7R06VKdPHlSS5cu1cKFC/XWW2/FWx6AQVDd4NfKyjr5g21R7YFgm1ZW1hFaAPQ7y7Ztu8+DLUs7d+7UggULIm0rVqzQ+fPnu8y89GTRokUKhUJ6/fXXI20FBQW65ZZbtGXLll6dIxQKye12KxgMKi0trdd/G0B82jtszSg/0CWsdLIkedxOHV57H5eHAFxTb3+/B+Sm24MHDyojI0Nf//rX9eijj6q5ubnH/kePHtXcuXOj2ubNm6cjR47EHBMOhxUKhaI2AAOvtvFczLAiSbYkf7BNtY3nBq8oAEmv3wPL/Pnz9atf/UoHDhzQCy+8oGPHjum+++5TOByOOSYQCCgzMzOqLTMzU4FAIOaYsrIyud3uyJadnd1vnwFAbM0tscNKX/oBQG/0+1NCixYtivxzbm6u7rrrLo0bN06vvfaaHnzwwZjjLCt66ti27S5tV1q3bp3WrFkT2Q+FQoQWYBBkuJz92g8AemPAH2v2er0aN26czpw5E7OPx+PpMpvS3NzcZdblSg6HQw6Ho9/qBNA7+Tnp8rqdCgTb1N0NcJ33sOTnpA92aQCS2IAvHPeHP/xBZ8+eldfrjdln2rRp2rdvX1Tb3r17NX369IEuD0CcUlMslRT6JF0OJ1fq3C8p9HHDLYB+FXdgaW1tVX19verr6yVJjY2Nqq+vV1NTk1pbW/Xkk0/q6NGj+v3vf6+DBw+qsLBQX/va1/Td7343co5ly5Zp3bp1kf3Vq1dr7969Ki8v1/vvv6/y8nLt379fxcXF1/0BAfS/glyvKpbkyeOOvuzjcTtVsSRPBbmx/wcFAPoi7ktCx48f1+zZsyP7nfeRLF++XBUVFXr33Xf1y1/+UufPn5fX69Xs2bO1bds2uVyuyJimpialpHyVlaZPn66tW7fq6aef1jPPPKPx48dr27Ztuvvuu6/nswEYQAW5Xs3xeVjpFsCguK51WEzCOiwAAAw9CV2HBQAAoD8RWAAAgPEILAAAwHgEFgAAYDwCCwAAMB6BBQAAGI/AAgAAjEdgAQAAxiOwAAAA4xFYAACA8QgsAADAeAQWAABgPAILAAAwHoEFAAAYj8ACAACMR2ABAADGI7AAAADjEVgAAIDxCCwAAMB4BBYAAGA8AgsAADAegQUAABiPwAIAAIxHYAEAAMYjsAAAAOPdkOgCgOGovcNWbeM5Nbe0KcPlVH5OulJTrESXBQDGIrAAg6y6wa/SPafkD7ZF2rxup0oKfSrI9SawMgAwF5eEgEFU3eDXysq6qLAiSYFgm1ZW1qm6wZ+gygDAbAQWYJC0d9gq3XNKdjfHOttK95xSe0d3PQBgeCOwAIOktvFcl5mVK9mS/ME21TaeG7yiAGCIILAAg6S5JXZY6Us/ABhOCCzAIMlwOfu1HwAMJwQWYJDk56TL63Yq1sPLli4/LZSfkz6YZQHAkEBgAQZJaoqlkkKfJHUJLZ37JYU+1mMBgG4QWIBBVJDrVcWSPHnc0Zd9PG6nKpbksQ4LAMTAwnHAICvI9WqOz8NKtwAQh7hnWGpqalRYWKisrCxZlqVdu3ZFjl28eFFr167VHXfcoZtuuklZWVlatmyZPvnkkx7PuXnzZlmW1WVra+NpCSSn1BRL08aP0nfuHK1p40cRVgDgGuIOLBcuXNCkSZO0cePGLsc+//xz1dXV6ZlnnlFdXZ127NihDz74QN/+9reved60tDT5/f6ozenkaQkAANCHS0Lz58/X/Pnzuz3mdru1b9++qLaXXnpJ+fn5ampq0tixY2Oe17IseTyeeMsBAADDwIDfdBsMBmVZlm6++eYe+7W2tmrcuHEaM2aMHnjgAZ04caLH/uFwWKFQKGoDAADJaUADS1tbm5566iktXrxYaWlpMftNnDhRmzdvVlVVlbZs2SKn06l77rlHZ86ciTmmrKxMbrc7smVnZw/ERwAAAAawbNvu85vWLMvSzp07tWDBgi7HLl68qIceekhNTU06ePBgj4Hlah0dHcrLy9PMmTO1YcOGbvuEw2GFw+HIfigUUnZ2toLBYFx/CwAAJE4oFJLb7b7m7/eAPNZ88eJFLVy4UI2NjTpw4EDcASIlJUVTpkzpcYbF4XDI4XBcb6kAAGAI6PdLQp1h5cyZM9q/f79GjRoV9zls21Z9fb28XhbRAgAAfZhhaW1t1YcffhjZb2xsVH19vdLT05WVlaXvf//7qqur069//Wu1t7crEAhIktLT03XjjTdKkpYtW6bRo0errKxMklRaWqqpU6dqwoQJCoVC2rBhg+rr6/Xyyy/3x2cEAABDXNyB5fjx45o9e3Zkf82aNZKk5cuX69lnn1VVVZUk6c4774wa98Ybb2jWrFmSpKamJqWkfDW5c/78eT322GMKBAJyu92aPHmyampqlJ+fH295AAAgCV3XTbcm6e1NOwAAwBy9/f3m5YcAAMB4BBYAAGA8AgsAADAegQUAABiPwAIAAIxHYAEAAMYjsAAAAOMRWAAAgPEILAAAwHgEFgAAYDwCCwAAMB6BBQAAGI/AAgAAjEdgAQAAxiOwAAAA4xFYAACA8W5IdAFAb7V32KptPKfmljZluJzKz0lXaoqV6LIAAIOAwIIhobrBr9I9p+QPtkXavG6nSgp9Ksj1JrAyAMBg4JIQjFfd4NfKyrqosCJJgWCbVlbWqbrBn6DKAACDhcACo7V32Crdc0p2N8c620r3nFJ7R3c9AADJgsACo9U2nusys3IlW5I/2KbaxnODVxQAYNARWGC05pbYYaUv/QAAQxOBBUbLcDn7tR8AYGgisMBo+Tnp8rqdivXwsqXLTwvl56QPZlkAgEFGYIHRUlMslRT6JKlLaOncLyn0sR4LACQ5AguMV5DrVcWSPHnc0Zd9PG6nKpbksQ4LAAwDLByHIaEg16s5Pg8r3QLAMEVgwZCRmmJp2vhRiS4DAJAAXBICAADGI7AAAADjEVgAAIDxCCwAAMB4BBYAAGA8AgsAADAegQUAABgv7sBSU1OjwsJCZWVlybIs7dq1K+q4bdt69tlnlZWVpREjRmjWrFl67733rnne7du3y+fzyeFwyOfzaefOnfGWBgAAklTcgeXChQuaNGmSNm7c2O3x559/Xi+++KI2btyoY8eOyePxaM6cOWppaYl5zqNHj2rRokVaunSpTp48qaVLl2rhwoV666234i0PAAAkIcu2bbvPgy1LO3fu1IIFCyRdnl3JyspScXGx1q5dK0kKh8PKzMxUeXm5Hn/88W7Ps2jRIoVCIb3++uuRtoKCAt1yyy3asmVLr2oJhUJyu90KBoNKS0vr60cCAACDqLe/3/16D0tjY6MCgYDmzp0baXM4HLr33nt15MiRmOOOHj0aNUaS5s2b1+OYcDisUCgUtQEAgOTUr4ElEAhIkjIzM6PaMzMzI8dijYt3TFlZmdxud2TLzs6+jsoBAIDJBuQpIcuKfoOubdtd2q53zLp16xQMBiPb2bNn+14wAAAwWr++rdnj8Ui6PGPi9Xoj7c3NzV1mUK4ed/VsyrXGOBwOORyO66wYAAAMBf06w5KTkyOPx6N9+/ZF2r788ksdOnRI06dPjzlu2rRpUWMkae/evT2OAQAAw0fcMyytra368MMPI/uNjY2qr69Xenq6xo4dq+LiYq1fv14TJkzQhAkTtH79eo0cOVKLFy+OjFm2bJlGjx6tsrIySdLq1as1c+ZMlZeX6zvf+Y52796t/fv36/Dhw/3wEQEAwFAXd2A5fvy4Zs+eHdlfs2aNJGn58uXavHmzfvSjH+mLL77QD3/4Q3322We6++67tXfvXrlcrsiYpqYmpaR8Nbkzffp0bd26VU8//bSeeeYZjR8/Xtu2bdPdd999PZ8NAAAkietah8UkrMMCAMDQk5B1WAAAAAYCgQUAABiPwAIAAIxHYAEAAMYjsAAAAOMRWAAAgPEILAAAwHj9+i4hmKm9w1Zt4zk1t7Qpw+VUfk66UlN6fhklAAAmIbAkueoGv0r3nJI/2BZp87qdKin0qSDX28NIAADMwSWhJFbd4NfKyrqosCJJgWCbVlbWqbrBn6DKAACID4ElSbV32Crdc0rdvXehs610zym1dyTFmxkAAEmOwJKkahvPdZlZuZItyR9sU23jucErCgCAPiKwJKnmlthhpS/9AABIJAJLkspwOfu1HwAAiURgSVL5Oenyup2K9fCypctPC+XnpA9mWQAA9AmBJUmlplgqKfRJUpfQ0rlfUuhjPRYAwJBAYEliBbleVSzJk8cdfdnH43aqYkke67AAAIYMFo5LcgW5Xs3xeVjpFgAwpBFYhoHUFEvTxo9KdBkAAPQZl4QAAIDxCCwAAMB4BBYAAGA8AgsAADAegQUAABiPwAIAAIxHYAEAAMYjsAAAAOMRWAAAgPEILAAAwHgEFgAAYDwCCwAAMB6BBQAAGI/AAgAAjEdgAQAAxiOwAAAA4xFYAACA8fo9sNx6662yLKvLVlRU1G3/gwcPdtv//fff7+/SAADAEHVDf5/w2LFjam9vj+w3NDRozpw5euihh3ocd/r0aaWlpUX2//RP/7S/SwMAAENUvweWq4PGT37yE40fP1733ntvj+MyMjJ0880393c5AAAgCQzoPSxffvmlKisr9cgjj8iyrB77Tp48WV6vV/fff7/eeOONa547HA4rFApFbQAAIDkNaGDZtWuXzp8/rxUrVsTs4/V69corr2j79u3asWOH/uzP/kz333+/ampqejx3WVmZ3G53ZMvOzu7n6gEAgCks27btgTr5vHnzdOONN2rPnj1xjSssLJRlWaqqqorZJxwOKxwOR/ZDoZCys7MVDAaj7oUBAADmCoVCcrvd1/z97vd7WDp99NFH2r9/v3bs2BH32KlTp6qysrLHPg6HQw6Ho6/lAQCAIWTALglt2rRJGRkZ+ta3vhX32BMnTsjr9Q5AVQAAYCgakBmWjo4Obdq0ScuXL9cNN0T/iXXr1unjjz/WL3/5S0nSz372M9166626/fbbIzfpbt++Xdu3bx+I0uLS3mGrtvGcmlvalOFyKj8nXakpPd88DAAA+t+ABJb9+/erqalJjzzySJdjfr9fTU1Nkf0vv/xSTz75pD7++GONGDFCt99+u1577TV985vfHIjSeq26wa/SPafkD7ZF2rxup0oKfSrIZfYHAIDBNKA33Q6m3t600xvVDX6trKzT1f9iOudWKpbkEVoAAOgHvf395l1CV2nvsFW651SXsCIp0la655TaO5Ii5wEAMCQQWK5S23gu6jLQ1WxJ/mCbahvPDV5RAAAMcwSWqzS3xA4rfekHAACuH4HlKhkuZ7/2AwAA14/AcpX8nHR53U7FenjZ0uWnhfJz0gezLAAAhjUCy1VSUyyVFPokqUto6dwvKfSxHgsAAIOIwNKNglyvKpbkyeOOvuzjcTt5pBkAgAQYsHcJDXUFuV7N8XlY6RYAAAMQWHqQmmJp2vhRiS4DAIBhj0tCAADAeAQWAABgPAILAAAwHoEFAAAYj8ACAACMR2ABAADGI7AAAADjEVgAAIDxCCwAAMB4SbPSrW3bkqRQKJTgSgAAQG91/m53/o7HkjSBpaWlRZKUnZ2d4EoAAEC8Wlpa5Ha7Yx637GtFmiGio6NDn3zyiVwulyyLFxReLRQKKTs7W2fPnlVaWlqiy4H4TkzD92EWvg+zDOT3Ydu2WlpalJWVpZSU2HeqJM0MS0pKisaMGZPoMoyXlpbGf/yG4TsxC9+HWfg+zDJQ30dPMyuduOkWAAAYj8ACAACMR2AZJhwOh0pKSuRwOBJdCv6I78QsfB9m4fswiwnfR9LcdAsAAJIXMywAAMB4BBYAAGA8AgsAADAegQUAABiPwJLkysrKNGXKFLlcLmVkZGjBggU6ffp0osvCH5WVlcmyLBUXFye6lGHr448/1pIlSzRq1CiNHDlSd955p95+++1ElzVsXbp0SU8//bRycnI0YsQI3XbbbfqHf/gHdXR0JLq0YaGmpkaFhYXKysqSZVnatWtX1HHbtvXss88qKytLI0aM0KxZs/Tee+8NSm0EliR36NAhFRUV6c0339S+fft06dIlzZ07VxcuXEh0acPesWPH9Morr+gv/uIvEl3KsPXZZ5/pnnvu0Z/8yZ/o9ddf16lTp/TCCy/o5ptvTnRpw1Z5ebn+5V/+RRs3btT//M//6Pnnn9dPf/pTvfTSS4kubVi4cOGCJk2apI0bN3Z7/Pnnn9eLL76ojRs36tixY/J4PJozZ07kfX4Diceah5lPP/1UGRkZOnTokGbOnJnocoat1tZW5eXl6Z//+Z/1T//0T7rzzjv1s5/9LNFlDTtPPfWU/vu//1u//e1vE10K/uiBBx5QZmamfvGLX0Tavve972nkyJH693//9wRWNvxYlqWdO3dqwYIFki7PrmRlZam4uFhr166VJIXDYWVmZqq8vFyPP/74gNbDDMswEwwGJUnp6ekJrmR4Kyoq0re+9S395V/+ZaJLGdaqqqp011136aGHHlJGRoYmT56sn//854kua1ibMWOG/uu//ksffPCBJOnkyZM6fPiwvvnNbya4MjQ2NioQCGju3LmRNofDoXvvvVdHjhwZ8L+fNC8/xLXZtq01a9ZoxowZys3NTXQ5w9bWrVtVV1enY8eOJbqUYe93v/udKioqtGbNGv393/+9amtr9Td/8zdyOBxatmxZossbltauXatgMKiJEycqNTVV7e3teu655/Twww8nurRhLxAISJIyMzOj2jMzM/XRRx8N+N8nsAwjq1at0jvvvKPDhw8nupRh6+zZs1q9erX27t0rp9OZ6HKGvY6ODt11111av369JGny5Ml67733VFFRQWBJkG3btqmyslKvvvqqbr/9dtXX16u4uFhZWVlavnx5osuDLl8qupJt213aBgKBZZh44oknVFVVpZqaGo0ZMybR5Qxbb7/9tpqbm/WNb3wj0tbe3q6amhpt3LhR4XBYqampCaxwePF6vfL5fFFtf/7nf67t27cnqCL83d/9nZ566in94Ac/kCTdcccd+uijj1RWVkZgSTCPxyPp8kyL1+uNtDc3N3eZdRkI3MOS5Gzb1qpVq7Rjxw4dOHBAOTk5iS5pWLv//vv17rvvqr6+PrLddddd+qu/+ivV19cTVgbZPffc0+Ux/w8++EDjxo1LUEX4/PPPlZIS/dOUmprKY80GyMnJkcfj0b59+yJtX375pQ4dOqTp06cP+N9nhiXJFRUV6dVXX9Xu3bvlcrki1yDdbrdGjBiR4OqGH5fL1eX+oZtuukmjRo3ivqIE+Nu//VtNnz5d69ev18KFC1VbW6tXXnlFr7zySqJLG7YKCwv13HPPaezYsbr99tt14sQJvfjii3rkkUcSXdqw0Nraqg8//DCy39jYqPr6eqWnp2vs2LEqLi7W+vXrNWHCBE2YMEHr16/XyJEjtXjx4oEvzkZSk9TttmnTpkSXhj+699577dWrVye6jGFrz549dm5uru1wOOyJEyfar7zySqJLGtZCoZC9evVqe+zYsbbT6bRvu+02+8c//rEdDocTXdqw8MYbb3T7m7F8+XLbtm27o6PDLikpsT0ej+1wOOyZM2fa77777qDUxjosAADAeNzDAgAAjEdgAQAAxiOwAAAA4xFYAACA8QgsAADAeAQWAABgPAILAAAwHoEFAAAYj8ACAACMR2ABAADGI7AAAADjEVgAAIDx/j/yXjML/kh3DAAAAABJRU5ErkJggg==" alt="No description has been provided for this image" /></p>
+<p>In [24]:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 建立模型</span><br><span class="line">from sklearn.linear_model import LinearRegression</span><br><span class="line">model = LinearRegression() #创建线性回归模型</span><br></pre></td></tr></table></figure>
+<p>In [25]:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 处理数据（转换维度）</span><br><span class="line">import numpy as np</span><br><span class="line">x = np.array(x).reshape(-1, 1) #将x转换为二维数组</span><br><span class="line">y = np.array(y).reshape(-1, 1) #将y转换为二维数组</span><br></pre></td></tr></table></figure>
+<p>In [26]:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lr = model.fit(x, y) #训练模型</span><br></pre></td></tr></table></figure>
+<p>In [27]:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 预测</span><br><span class="line">y_predict = model.predict(x) #预测</span><br><span class="line">print(y_predict) #打印预测结果</span><br><span class="line">[[ 7.]</span><br><span class="line"> [ 9.]</span><br><span class="line"> [11.]</span><br><span class="line"> [13.]</span><br><span class="line"> [15.]</span><br><span class="line"> [17.]</span><br><span class="line"> [19.]</span><br><span class="line"> [21.]</span><br><span class="line"> [23.]</span><br><span class="line"> [25.]]</span><br></pre></td></tr></table></figure>
+<p>In [28]:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Y = lr.predict([[3.5]]) #预测</span><br><span class="line">print(Y) #打印预测结果</span><br><span class="line">[[12.]]</span><br></pre></td></tr></table></figure>
+<p>In [29]:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># a/b 打印</span><br><span class="line">a = lr.coef_ #获取斜率</span><br><span class="line">b = lr.intercept_ #获取截距</span><br><span class="line">print(a,b)</span><br><span class="line">[[2.]] [5.]</span><br></pre></td></tr></table></figure>
+<p>In [30]:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 模型评估</span><br><span class="line">from sklearn.metrics import mean_squared_error, r2_score</span><br><span class="line">r2 = r2_score(y, y_predict) #决定系数</span><br><span class="line">mse = mean_squared_error(y, y_predict) #均方误差</span><br><span class="line">print(mse,r2) </span><br><span class="line">1.4909471108677122e-29 1.0</span><br></pre></td></tr></table></figure>
+<p>In [31]:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 通过图像对比</span><br><span class="line">plt.figure() #创建一个空白窗口</span><br><span class="line">plt.plot(y,y_predict) #创建图</span><br><span class="line">plt.show() #展示图形</span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/png;base64,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" alt="No description has been provided for this image" /></p>
+<ul>
+<li>
+<p>均方误差 (Mean Squared Error, MSE)</p>
+<ul>
+<li>
+<p><strong>定义</strong>: MSE 衡量的是预测值与真实值之间差的平方的均值。</p>
+</li>
+<li>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi><mi>S</mi><mi>E</mi><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo stretchy="false">(</mo><msub><mi>y</mi><mi>i</mi></msub><mo>−</mo><msub><mover accent="true"><mi>y</mi><mo>^</mo></mover><mi>i</mi></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.929066em;vertical-align:-1.277669em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">n</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.1141079999999999em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.19444em;">^</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></p>
+</li>
+<li>
+<p>n 是样本数量。</p>
+</li>
+<li>
+<p>yi 是第 i 个样本的真实值。</p>
+</li>
+<li>
+<p>y^i 是第 i 个样本的预测值。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>决定系数 (R-squared, <code>r^2</code>)</p>
+</li>
+<li>
+<p><strong>定义</strong>: R2 衡量的是模型对因变量（目标变量）方差的解释程度。它表示因变量中可以由自变量（特征）预测的变异性比例。</p>
+</li>
+</ul>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>R</mi><mn>2</mn></msup><mo>=</mo><mn>1</mn><mo>−</mo><mfrac><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo stretchy="false">(</mo><msub><mi>y</mi><mi>i</mi></msub><mo>−</mo><msub><mover accent="true"><mi>y</mi><mo>^</mo></mover><mi>i</mi></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo stretchy="false">(</mo><msub><mi>y</mi><mi>i</mi></msub><mo>−</mo><mover accent="true"><mi>y</mi><mo>ˉ</mo></mover><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow></mfrac><mo>=</mo><mn>1</mn><mo>−</mo><mfrac><mrow><mi>S</mi><mi>S</mi><mi>E</mi></mrow><mrow><mi>S</mi><mi>S</mi><mi>T</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">  R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2} = 1 - \frac{SSE}{SST}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8641079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.49782em;vertical-align:-0.994002em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.5038179999999999em;"><span style="top:-2.305708em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.56778em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.19444em;">ˉ</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.740108em;"><span style="top:-2.9890000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.6897100000000003em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.19444em;">^</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.994002em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.04633em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<ul>
+<li>
+<p>yi 是真实值。</p>
+</li>
+<li>
+<p>y^i 是预测值。</p>
+</li>
+<li>
+<p>yˉ 是真实值的平均值。</p>
+</li>
+</ul>
+<p>mse越小越好，<code>r^2</code>越接近1越好。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://moshiqiqian.top">moshiqiqian</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://moshiqiqian.top/post/b8c41b65.html">https://moshiqiqian.top/post/b8c41b65.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://moshiqiqian.top" target="_blank">moshiqiqian</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a class="post-meta__tags" href="/tags/Anaconda/">Anaconda</a><a class="post-meta__tags" href="/tags/Jupyter/">Jupyter</a></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/picture/weixin.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/picture/weixin.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/picture/zhifubao.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/picture/zhifubao.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/post/cbdf0372.html" title="霍普菲尔德网络"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://moshiqiqian.github.io/picx-images-hosting/网站/封面5.45hyorc8qc.webp" onerror="onerror=null;src='/picture/not_found.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">霍普菲尔德网络</div></div><div class="info-2"><div class="info-item-1">霍普菲尔德网络的原理以及公式解释</div></div></div></a><a class="pagination-related" href="/post/daeb7f65.html" title="twikoo评论"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://moshiqiqian.github.io/picx-images-hosting/网站/封面12.7eh2lezqdf.webp" onerror="onerror=null;src='/picture/not_found.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">twikoo评论</div></div><div class="info-2"><div class="info-item-1">简单的markdown语法教学，包括平时常用的语法格式以及示例</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.</span> <span class="toc-text"> 机器学习实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text"> 训练流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.2.</span> <span class="toc-text"> 环境介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">1.3.</span> <span class="toc-text"> 环境准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.4.</span> <span class="toc-text"> 代码实践</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2025 By moshiqiqian</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div><div class="footer_custom_text">mo的小站</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css')
+    if (true) {
+      await btf.getScript('https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script><script>(() => {
+  const runMermaid = ele => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    ele.forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = `%%{init:{ 'theme':'${theme}'}}%%\n`
+      const mermaidID = `mermaid-${index}`
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+      const renderMermaid = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      // mermaid v9 and v10 compatibility
+      typeof renderFn === 'string' ? renderMermaid(renderFn) : renderFn.then(({ svg }) => renderMermaid(svg))
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+
+    codeMermaidEle.forEach(ele => {
+      const preEle = document.createElement('pre')
+      preEle.className = 'mermaid-src'
+      preEle.hidden = true
+      preEle.textContent = ele.textContent
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.appendChild(preEle)
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (true) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaidFn)
+  }
+
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo-teal-mu.vercel.app/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://twikoo-teal-mu.vercel.app/',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script defer src="/js/light.js"></script><script defer src="/js/universe.js"></script><canvas id="universe"></canvas><script defer src="/js/cursor.js"></script><script defer src="/js/emoji.js"></script><script defer src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script><script defer src="https://unpkg.com/element-ui@2.15.6/lib/index.js"></script><script defer src="/js/formal.js"></script><script defer src="/js/console.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="post/7d6919a5.html" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://moshiqiqian.github.io/picx-images-hosting/网站/封面2.8ojzrqhpnv.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-04-28</span><a class="blog-slider__title" href="post/7d6919a5.html" alt="">超好用永久免费图床</a><div class="blog-slider__text">计算机的基础常识,帮助你快速度过计算机小白时期!</div><a class="blog-slider__button" href="post/7d6919a5.html" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="post/b8c41b65.html" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://moshiqiqian.github.io/picx-images-hosting/网站/封面8.7pl83183g.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-05-19</span><a class="blog-slider__title" href="post/b8c41b65.html" alt="">机器学习实践</a><div class="blog-slider__text">机器学习流程以及简单的实践</div><a class="blog-slider__button" href="post/b8c41b65.html" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="post/f795ecf0.html" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://moshiqiqian.github.io/picx-images-hosting/网站/封面1.2yyng5nc4o.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-04-27</span><a class="blog-slider__title" href="post/f795ecf0.html" alt="">程序员该具备的基本知识</a><div class="blog-slider__text">计算机的基础常识,帮助你快速度过计算机小白时期!</div><a class="blog-slider__button" href="post/f795ecf0.html" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '1s');
+    arr[i].setAttribute('data-wow-offset', '100');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --></body></html>
