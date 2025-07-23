@@ -113,7 +113,7 @@ cover:
     - https://moshiqiqian.github.io/picx-images-hosting/网站/封面2.8ojzrqhpnv.webp
     - https://moshiqiqian.github.io/picx-images-hosting/网站/封面3.45zad85db.webp
     - https://moshiqiqian.github.io/picx-images-hosting/网站/封面4.1hsieej7e8.webp
-    - hhttps://moshiqiqian.github.io/picx-images-hosting/网站/封面5.45hyorc8qc.webp
+    - https://moshiqiqian.github.io/picx-images-hosting/网站/封面5.45hyorc8qc.webp
     - https://moshiqiqian.github.io/picx-images-hosting/网站/封面6.8hgrwavk8n.webp
     - https://moshiqiqian.github.io/picx-images-hosting/网站/封面7.8ojzrqhpo9.webp
     - https://moshiqiqian.github.io/picx-images-hosting/网站/封面8.7pl83183g.webp
@@ -1021,7 +1021,7 @@ lazyload:
 # See https://github.com/JLHwung/hexo-offline
 # ---------------
 pwa:
-  enable: true
+  enable: false
   manifest: /manifest.json
   apple_touch_icon: /picture/head/128.png
   favicon_32_32: /picture/head/32.png
@@ -1058,7 +1058,7 @@ inject:
     - <link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'">
     - <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4892928_90poycgclrw.css" media="defer" onload="this.media='all'"> # css图标引入1
     - <link rel="stylesheet" href="https://unpkg.com/element-ui@2.15.6/lib/theme-chalk/index.css"> # 引入组件库(f12)
-
+    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
 
   bottom:
     # ... 其他 bottom 中的注入不变 ...
