@@ -69,7 +69,30 @@ date: 2025-04-26 23:50:33
    Hi '你的名字'！You've successfully authenticated, but GitHub does not provide shell access.
    ```
 
+   若失败显示：
+   ```
+   ssh: connect to host github.com port 22: Connection timed out
+   ```
+
+    在git bash中输入
+   ```
+   ssh -T -p 443 git@ssh.github.com
+   ```
+   会显示
+   ```
+   Hi moshiqiqian! You've successfully authenticated, but GitHub does not provide shell access.
+   ```
    
+   随后修改 ssh文件夹中的config文件，如果没有就新建一个
+   在其中添加：
+   ```
+   # Add section below to it
+   Host github.com
+   Hostname ssh.github.com
+   Port 443
+   ```
+   完成！
+
 
 ### 配置 SourceTree
 
