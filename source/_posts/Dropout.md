@@ -3,6 +3,12 @@ title: Dropout
 abbrlink: 5d34d655
 date: 2025-09-24 20:11:01
 tags:
+  - Dropout
+categories:
+  - 教学
+  - 人工智能
+  - Dropout
+  
 ---
 ## Dropout
 
