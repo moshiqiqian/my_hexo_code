@@ -18,9 +18,6 @@ date: 2025-04-07 21:24:59
 
 ### 克隆原始仓库到本地
 
-bash
-
-复制
 
 ```bash
 git clone https://github.com/original-owner/original-repo.git
@@ -29,9 +26,7 @@ cd original-repo
 
 ### 清空本地仓库的 Git 历史
 
-bash
 
-复制
 
 ```bash
 git checkout --orphan temp
@@ -53,9 +48,7 @@ git branch -m master
 
 如果分支是 `main`：将所有命令中的 `master` 换成 `main`。
 
-bash
 
-复制
 
 ```bash
 git branch -D main
@@ -67,10 +60,6 @@ git push new-origin main
 
 - **HTTP**：
 
-  bash
-
-  复制
-
   ```bash
   git remote add new-origin https://github.com/your-username/new-repo.git
   ```
@@ -79,9 +68,6 @@ git push new-origin main
 
 - **SSH**：
 
-  bash
-
-  复制
 
   ```bash
   git remote add origin git@github.com:your-username/new-repo.git
@@ -91,9 +77,6 @@ git push new-origin main
 
 ### 推送代码到新仓库
 
-bash
-
-复制
 
 ```bash
 git push new-origin master
@@ -101,9 +84,7 @@ git push new-origin master
 
 若是出现如下报错：
 
-bash
 
-复制
 
 ```bash
 $ git push new-origin main
@@ -125,9 +106,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
   如果你希望保留远程仓库中的更改，并将它们合并到你的本地仓库中，可以使用以下命令：
 
-  bash
 
-  复制
 
   ```bash
   git pull new-origin main
@@ -139,9 +118,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
   如果你确定远程仓库中的更改不重要，或者你希望完全覆盖远程仓库的内容，可以使用强制推送：
 
-  bash
 
-  复制
 
   ```bash
   git push new-origin main --force
