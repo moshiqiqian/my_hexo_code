@@ -307,7 +307,7 @@ aside:
       link: https://github.com/moshiqiqian
   card_announcement: # 公告
     enable: true
-    content: 小站建设中!
+    content: 致力于写出每个人都能看懂的文章！
   card_recent_post: # 最近文章
     enable: false
     # If set 0 will show all
