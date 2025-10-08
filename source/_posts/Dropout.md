@@ -8,7 +8,7 @@ categories:
   - 教学
   - 人工智能
   - Dropout
-  
+description: Dropout详解
 ---
 ## Dropout
 
