@@ -3,7 +3,7 @@ title: mo的私货
 date: 2025-04-12 12:00:00
 update: 2025-04-12 12:00:00
 comments: true
-password: GUIGU
+password: moshiqiqian
 theme: xray
 message: 这里记录一些内部教学文章!
 abstract: 此处输入密码! #密码框提示信息
