@@ -5,7 +5,7 @@ update: 2025-04-12 12:00:00
 comments: true
 password: moshiqiqian
 theme: xray
-message: 这里记录一些内部教学文章!
+message: 这里记录一些内部教学文章!注意用英文输入法输入密码！
 abstract: 此处输入密码! #密码框提示信息
 wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试! #密码错误提示信息
 layout: page
