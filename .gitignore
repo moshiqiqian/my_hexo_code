@@ -1,0 +1,13 @@
+# Hexo 生成的数据库文件
+db.json
+
+# 常见的 Hexo 忽略项
+.DS_Store
+Thumbs.db
+node_modules/
+public/
+.deploy*/
+.deploy_git/
+
+# 日志文件
+*.log
