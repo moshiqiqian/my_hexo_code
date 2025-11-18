@@ -4,7 +4,6 @@ db.json
 # 常见的 Hexo 忽略项
 .DS_Store
 Thumbs.db
-node_modules/
 public/
 .deploy*/
 .deploy_git/
