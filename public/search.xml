@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>前后端开发</title>
+      <link href="/post/212db99c.html"/>
+      <url>/post/212db99c.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前后端分离项目开发介绍"><a class="markdownIt-Anchor" href="#前后端分离项目开发介绍"></a> 前后端分离项目开发介绍</h2><h3 id="技术介绍"><a class="markdownIt-Anchor" href="#技术介绍"></a> 技术介绍</h3><h4 id="后端"><a class="markdownIt-Anchor" href="#后端"></a> 后端</h4><p>1、Node.js</p><p>使用 JavaScript 来构建网站的后端服务、API（应用程序接口）以及处理数据库逻辑。</p><p>简单来说Node.js 就像一个<strong>容器</strong>或<strong>操作系统</strong>，它为你提供了一个执行 JavaScript 代码的地方，并提供了一套核心的 API（例如，处理文件、网络连接、操作系统的能力）。</p><p>TypeScript（TS），它是 JavaScript 的一个超集。它的主要目的是<strong>增强 JavaScript 的能力，使其更适合开发大型应用</strong>。一般来说，TS不能被Node.js和浏览器直接运行，需要被转义成js。</p><p>2、Express</p><p><strong>Express.js</strong> 是用 <strong>JavaScript</strong> 语言编写的，用于在 <strong>Node.js 运行时环境</strong>中构建 Web 应用的<strong>工具集/结构</strong>。</p><p>简单来说就像是一个工具包，为我们开发后端提供助力。</p><table><thead><tr><th><strong>特点</strong></th><th><strong>解释</strong></th></tr></thead><tbody><tr><td><strong>极简 (Minimalist)</strong></td><td>Express 提供了 Web 开发的最低限度且必需的功能。它不强迫你使用任何特定的数据库或模板引擎。</td></tr><tr><td><strong>灵活 (Flexible)</strong></td><td>它的核心是中间件。你可以自由地添加任何你需要的模块或库来扩展功能。</td></tr><tr><td><strong>非侵入式 (Unopinionated)</strong></td><td>Express 不预设你的应用结构应该是什么样的。这给了开发者完全的自由，但也意味着需要自己做更多决策。</td></tr><tr><td><strong>快速 (Fast)</strong></td><td>由于其基础和轻量级的特性，Express 本身非常高效。</td></tr></tbody></table><p>3、基于Node.js和Express后端结构</p><p>在中小型项目中，最常用的结构是Routes/Controllers/Models</p><p>（1）Routes</p><p>Routes 层的职责是实现请求路由（Request Routing）。它定义了 HTTP 方法与 URL 路径的映射关系。当服务器接收到外部 HTTP 请求时，Routes 层负责将其准确地分发给对应的 Controller 函数，以启动业务处理流程。</p><p>简答来说，这就是它起到了类似于导航的作用，当传来要执行某个任务的时候，他会将这个任务导向实现这个任务的Controller 函数，随后进行后续的操作。</p><p>（2）Controllers</p><p>如果将整个后端应用比作一家公司，Controller 就是<strong>项目经理</strong>，它的职责是协调资源（Models）来完成任务，并对外（前端）给出最终结果。</p><p>它主要可以分为三部分：</p><ol><li><p>处理输入数据 ：<br />从 HTTP 请求中<strong>提取出所有必要的信息</strong>，以便进行业务处理。<br />Controller 必须是“干净”的，它只接受整理好的数据。如果数据提取或解析失败（例如，请求体格式错误），Controller 应该在此处捕获并立即返回错误，不让无效请求进入后续的业务逻辑。</p></li><li><p>协调业务逻辑：<br />这一步是 Controller 的“大脑”，它负责<strong>决定执行的顺序</strong>和<strong>资源的调用</strong>。</p><ul><li><p>调用 Models<br />Controller 只需要调用 Model 提供的<strong>抽象方法</strong>，他不会来直接完成任务。</p></li><li><p>控制流程</p><p>Controller 决定多个 Model 操作的顺序。</p></li></ul></li><li><p>构造并发送响应：<br />这一步是 Controller 的“出口”，目标是向客户端<strong>提供明确、标准的反馈</strong>。</p><ul><li><p>结果处理和状态码设置<br />例如：</p><p><strong>成功的响应：</strong></p><ul><li><code>200 OK</code>：请求成功，且返回了数据（如 GET 请求）。</li></ul><p><strong>客户端错误的响应：</strong></p><ul><li><code>400 Bad Request</code>：请求数据格式不正确（如缺少必需字段）。</li></ul></li><li><p>数据格式化</p></li></ul><p><strong>数据标准化：</strong> Controller 接收到 Model 返回的原始数据后，可能会进行最后的处理，例如：隐藏敏感字段（如用户密码）、重命名字段。</p><p><strong>发送 JSON：</strong> 在 Web API 后端，Controller 通常使用 Express 提供的 <code>res.json(data)</code> 方法，将处理后的 JavaScript/TypeScript 对象自动转换成 <strong>JSON 字符串</strong>并发送给前端。</p></li></ol><p>（3）Models</p><p>Models 层有两个核心职责：<strong>数据蓝图定义</strong>和<strong>数据持久化操作</strong>。</p><ol><li><p>数据蓝图定义</p><p>定义记录了各种数据的标准， 确保数据在输入、输出和传输过程中，字段名和数据类型（如数字、字符串、布尔值）都是固定的、可预测的。</p></li><li><p>数据持久化操作<br />进行实际的数据操作， 负责将数据写入到永久存储介质（如数据库）中，或从中读取数据。</p></li></ol><h4 id="前端"><a class="markdownIt-Anchor" href="#前端"></a> 前端</h4><p>以Uniapp举例简单介绍Uniapp框架中各个部分的作用，Vue也大同小异。</p><p>1、框架介绍</p><p>（1）<strong>App.vue</strong> (Vue单文件组件)</p><p><strong>语言</strong>：Vue3 Template + TypeScript</p><p><strong>作用</strong>：</p><ul><li>UniApp应用的根组件</li><li>应用启动时的全局逻辑（onLaunch）</li><li>应用显示/隐藏时的生命周期钩子</li></ul><p>（2）<strong>main.ts</strong> (TypeScript)</p><p><strong>语言</strong>：TypeScript</p><p><strong>作用</strong>：</p><ul><li>应用入口文件</li><li>初始化Vue3应用实例</li><li>集成Pinia状态管理库</li></ul><p>（3）<strong>pages.json</strong> (JSON配置)</p><p><strong>语言</strong>：JSON</p><p><strong>作用</strong>：</p><ul><li>UniApp的页面配置文件（类似小程序的app.json）</li><li>定义应用的页面路由</li><li>配置全局样式和导航栏</li></ul><p>（4）page文件夹</p><p>存放所有<strong>完整的、独立</strong>的 Vue 单文件组件（<code>.vue</code> 文件），它们代表了应用中的一个独立页面。</p><p>（5）components文件夹</p><p>存放所有<strong>可复用</strong>的 Vue 单文件组件（<code>.vue</code> 文件）。这些组件是应用程序的 UI 构造块，但不具备独立页面的功能。<em>例如：按钮、导航栏、自定义卡片、Modal 弹窗等。</em></p><p>（5）api文件夹</p><p>存放所有与<strong>后端数据交互</strong>相关的代码。例如，封装 <code>uni.request</code> 或 <code>axios</code> 的函数，用于调用后端 API（如获取用户列表、提交订单、登录等）。它将数据请求逻辑从组件中分离出来。</p><p>（6）stores文件夹</p><p>存放所有使用 <strong>Pinia</strong> 或 <strong>Vuex</strong> 定义的<strong>状态管理模块</strong>（Store）。这些文件负责管理需要在多个组件或页面间共享的数据和业务逻辑。<em>例如：用户登录状态、购物车数据、全局配置等。</em></p><h4 id="数据库"><a class="markdownIt-Anchor" href="#数据库"></a> 数据库</h4><p>MySQL：它通过 <strong>SQL 语言</strong>，以表格和关系的形式，高效且安全地管理应用程序所需的所有结构化数据。</p><p>Apache：前后端通信的桥梁。</p><h4 id="架构图"><a class="markdownIt-Anchor" href="#架构图"></a> 架构图</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">┌─────────────────────┐</span><br><span class="line">│   UniApp前端应用     │</span><br><span class="line">│  (Vue3 + TypeScript)│</span><br><span class="line">└──────────┬──────────┘</span><br><span class="line">           │ HTTP请求</span><br><span class="line">           │ (REST API)</span><br><span class="line">           ↓</span><br><span class="line">┌──────────────────────────┐</span><br><span class="line">│  Express后端服务器        │</span><br><span class="line">│  (Node.js + TypeScript)  │</span><br><span class="line">│  http://localhost:3000   │</span><br><span class="line">└──────────┬───────────────┘</span><br><span class="line">           │</span><br><span class="line">           ↓</span><br><span class="line">    ┌──────────────┐</span><br><span class="line">    │  MySQL数据库  │</span><br><span class="line">    │localhost:3306│</span><br><span class="line">    └──────────────┘</span><br><span class="line">           </span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教学 </category>
+          
+          <category> 项目开发 </category>
+          
+          <category> 全栈式 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前后端开发 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>图灵机</title>
       <link href="/post/624c7376.html"/>
       <url>/post/624c7376.html</url>
