@@ -1,5 +1,7 @@
 # Hexo 生成的数据库文件
 db.json
+db.*.json
+.vscode/
 
 # 常见的 Hexo 忽略项
 .DS_Store
@@ -8,5 +10,22 @@ public/
 .deploy*/
 .deploy_git/
 
+# Node.js 依赖管理
+# 忽略所有 Node.js 模块安装目录
+node_modules/
+
 # 日志文件
 *.log
+npm-debug.log* yarn-error.log* yarn-debug.log*
+
+# 缓存和临时文件
+.hexo/
+.npm/
+
+# IDE 或编辑器配置文件 (以 VS Code 为例)
+.vscode/
+
+# 备份文件
+*.bak
+*.orig
+*~

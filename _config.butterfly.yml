@@ -1071,6 +1071,7 @@ inject:
     - <script defer src="https://unpkg.com/element-ui@2.15.6/lib/index.js"></script> # 引入ElementUI (f12)
     - <script defer src="/js/formal.js"></script> # 弹窗 
     - <script defer src="/js/console.js"></script> # 控制台特效
+    - <script defer src="/js/swiper_fix.js"></script> # 解决swiper冲突问题
     
   
 # CDN Settings
