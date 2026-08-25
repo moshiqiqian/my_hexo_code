@@ -9,13 +9,12 @@
     "server": "hexo server"
   },
   "hexo": {
-    "version": "8.0.0"
+    "version": "8.1.1"
   },
   "dependencies": {
     "@upupming/hexo-renderer-markdown-it-plus": "^2.0.2",
-    "hexo": "^8.0.0",
+    "hexo": "^8.1.1",
     "hexo-abbrlink": "^2.2.1",
-    "hexo-blog-encrypt": "^3.1.9",
     "hexo-butterfly-envelope": "^1.0.15",
     "hexo-butterfly-swiper": "^1.0.12",
     "hexo-butterfly-wowjs": "^1.0.5",
@@ -29,7 +28,7 @@
     "hexo-renderer-pug": "^3.0.0",
     "hexo-renderer-stylus": "^3.0.1",
     "hexo-server": "^3.0.0",
-    "hexo-theme-butterfly": "^5.5.0",
+    "hexo-theme-butterfly": "^5.5.2",
     "hexo-theme-landscape": "^1.0.0",
     "hexo-wordcount": "^6.0.1"
   }
