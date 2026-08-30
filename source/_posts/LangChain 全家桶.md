@@ -1,16 +1,16 @@
 ---
-layout: 深入解析
-title: LangChain 全家桶
-date: 2026-08-30 22:15:03
+title: LangChain 
+abbrlink: a2992615
 tags:
   - LangChain
   - 人工智能
 categories:
   - 教学
   - 人工智能
-  - LangChain
 swiper_index: 5
-description: 玻尔兹曼机的基础概念以及原理介绍
+description: LangChain 以及相关技术介绍
+date: 2026-08-30 22:15:03
+
 ---
 ##  LangChain 全家桶
 ### LangChain

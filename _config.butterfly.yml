@@ -207,14 +207,12 @@ index_post_content:
 # --------------------------------------
 # Post Settings
 # --------------------------------------
-
 toc:
   post: true
   page: false
-  number: fasle
+  number: false     # <--- 必须确保这里是 true
   expand: true
-  # Only for post
-  style_simple: true
+  style_simple: false
   scroll_percent: true
 
 post_copyright:
