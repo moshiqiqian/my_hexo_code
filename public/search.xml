@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>LangChain 全家桶</title>
+      <link href="/post/undefined.html"/>
+      <url>/post/undefined.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="langchain-全家桶"><a class="markdownIt-Anchor" href="#langchain-全家桶"></a> LangChain 全家桶</h2><h3 id="langchain"><a class="markdownIt-Anchor" href="#langchain"></a> LangChain</h3><p><strong>LangChain</strong> 是一个开源的开发框架，旨在帮助开发者使用大型语言模型（LLM，如 GPT-4 等）构建强大的应用程序。它提供了一套通用的工具和接口，把大语言模型与外部数据源、计算逻辑以及其他应用连接起来。</p><p>简单来说，LangChain 就像是大模型时代的“胶水”或“操作系统框架”，解决了单独调用大模型时“无法连接外部数据库”、“缺乏记忆”或“复杂任务难以编排”的痛点。</p><h3 id="langconnect"><a class="markdownIt-Anchor" href="#langconnect"></a> LangConnect</h3><h4 id="tool-tool-calling"><a class="markdownIt-Anchor" href="#tool-tool-calling"></a> Tool 、Tool Calling</h4><p>说到LangConnect之前必须先了解一下什么是Tool 、什么是Tool Calling。</p><p>Agent 与传统 LLM 的划时代区别在于：它不再局限于传统的文本或视频生成，而是能够真正接管电脑、操控各类软件，实现端到端的自主化生产。在这个过程中，大模型扮演“思考的大脑”，而那些被封装好并与模型深度链接的各类函数，就是它手中的 <strong>Tools（工具）</strong>；让 LLM 具备自主理解、决策并驱动这些工具协同工作的机制，便是核心的 <strong>Tool Calling（工具调用）</strong>。</p><p>Tool Calling 的底层逻辑通常分为以下几步：</p><ol><li><strong>定义工具（Definition）：</strong> 开发者用代码定义好工具的名称、功能描述以及需要的参数格式（通常用 JSON Schema 表示），并注册给 LLM。</li><li><strong>模型决策（Reasoning &amp; Selection）：</strong> 当用户提出一个问题时（例如：“帮我查一下北京明天的天气”），LLM 会分析自己的能力和已有的工具，发现自己不知道实时天气，但有一个 <code>get_weather</code> 工具。</li><li><strong>生成调用指令（Tool Call）：</strong> LLM 不会直接回答天气，而是输出一段结构化的指令（告诉系统：“请帮我调用 <code>get_weather</code> 工具，参数是 <code>city='北京'</code>”）。</li><li><strong>程序执行（Execution）：</strong> 你的代码（如 LangChain 框架）拦截到这个指令，在本地或通过 API 真正去执行这个函数，拿到返回结果（例如：“多云，25℃”）。</li><li><strong>二次生成（Response）：</strong> 把工具返回的结果再喂给 LLM，LLM 润色后输出最终的人性化回答：“北京明天多云，气温大约是 25 度……”</li></ol><p>这是一个简单的例子，当然也可以调用Tool实现更复杂的工作,例如清理c盘等等。</p><h4 id="langconnect-2"><a class="markdownIt-Anchor" href="#langconnect-2"></a> LangConnect</h4><p>既然工具（Tools）这么强大，但如果所有的工具都要开发者自己去一行行写代码对接（比如自己去研究谷歌搜索的 API、自己写连接 Notion 和各类数据库的逻辑），开发效率依然会非常低下。</p><p>这就是 <strong>LangConnect（生态集成库 / Integrations）</strong> 存在的意义。它相当于大模型世界的“官方插件应用商店”：</p><ol><li><strong>统一的标准（插座）：</strong> LangChain 规定了所有工具必须长什么样（标准的名字、描述、参数格式）。</li><li><strong>丰富的工具池（各种插头）：</strong> 官方和各大厂商/社区把各种现成的服务（如谷歌搜索、Wikipedia、Python REPL 运行环境、SQL 数据库连接器、Notion、Slack 等）全部封装成了标准的 <strong>Tools</strong>。</li><li><strong>即插即用：</strong> 开发者在构建 Agent 时，不需要重复造轮子，只需要像装插件一样把它们引入，大模型就能直接识别并调用这些强大的外部能力。</li></ol><h3 id="langgraph"><a class="markdownIt-Anchor" href="#langgraph"></a> LangGraph</h3><p>如果说 LLM 是核心指挥官，LangChain 是尖端装备与战术背包，那么 LangGraph 就是作战指挥系统与战术规程。</p><h4 id="优势一"><a class="markdownIt-Anchor" href="#优势一"></a> 优势一、</h4><p>在传统的程序或线性 Chain 里，一旦代码跑起来，就像离弦的箭，不撞南墙不回头。如果 AI 在中间步骤突然“卡住”，或者要执行一个高风险操作（比如删数据库、转账、给大客户发邮件），直接让它裸奔是非常危险的。</p><p>LangGraph 的绝招在于它<strong>原生支持状态持久化（Persistence）和中断（Interrupt）</strong>：</p><ul><li><strong>断点卡住（Interrupt）：</strong> 你可以在图的任意一个节点前或后设置“安检门”。当 AI 运行到这里时，任务会<strong>完美暂停</strong>，并将当时的上下文、AI 生成的中间方案原封不动地呈递给人类。</li><li><strong>人类审核与篡改：</strong> 人类可以像领导批阅文件一样，选择“直接放行”、“驳回重写”，甚至<strong>直接手动修改 AI 算出来的参数/状态</strong>。</li><li><strong>无缝续航：</strong> 等人类确认无误、点击继续后，LangGraph 会从那个暂停的节点<strong>无缝恢复执行</strong>，后面的流程压根不知道中间被人类“按过暂停键”。</li></ul><h4 id="优势二"><a class="markdownIt-Anchor" href="#优势二"></a> 优势二、</h4><p>处理复杂问题时，人类绝不是一次性把话说完、直线把事做完的。人类解决复杂问题靠的是“试错、碰壁、回头、再商量”。传统的线性链条（一条道走到黑）面对复杂任务直接就瘫痪了，而 LangGraph 是为这种场景而生的：</p><ol><li><strong>允许“走回头路”（Loops / Cycles）：</strong><ul><li>传统 Chain：<code>A -&gt; B -&gt; C</code>（做完就结束）。</li><li>LangGraph：<code>生成方案 -&gt; 运行测试 -&gt; 发现Bug？ -&gt; 打回重写（跳回上一步） -&gt; 再次测试</code>。这种<strong>带环路的逻辑</strong>，让 AI 具备了像程序员一样的“调试与自我纠错（Debugging）”能力。</li></ul></li><li><strong>多 Agent 辩论与协同（Multi-Agent):</strong><ul><li>复杂问题往往不是一个模型能搞定的。LangGraph 可以构建一个“公司架构”：<strong>产品经理 Agent</strong> 拆解需求，交给 <strong>架构师 Agent</strong> 设计，再交给 <strong>程序员 Agent</strong> 写代码，最后交给 <strong>测试 Agent</strong> 挑刺。</li><li>如果测试 Agent 发现问题，整个图会动态把任务退回给程序员 Agent 修改。在这个过程中，多个 Agent 像真人一样开会、分工、互相纠错，从而能啃下单体模型根本啃不动的硬骨头大项目。</li></ul></li></ol><h3 id="langsmith"><a class="markdownIt-Anchor" href="#langsmith"></a> LangSmith</h3><p>当你的 Agent 跑起来、甚至接入 LangGraph 开始自主循环时，你必然会遇到以下问题：</p><ol><li><strong>“黑盒”灾难：</strong> 为什么大模型今天突然卡死在某一个节点了？它在这一步传给工具的参数到底是什么？消耗了多少 Token？花了多少钱？</li><li><strong>“玄学”调优：</strong> 我改了一下 Prompt，怎么知道它是变好了还是变差了？总不能靠人工盲测吧？</li></ol><p><strong>LangSmith 的核心价值：</strong></p><ul><li><strong>全链路 Trace（追踪）：</strong> 它可以像飞机黑匣子一样，把每一次用户请求触发的整个链路（LangChain 的每个步骤、Tool Calling 的输入输出、LangGraph 的每个节点状态流转）<strong>可视化</strong>记录下来。哪里报错、哪里耗时最长，一眼就能看清。</li><li><strong>线上监控与评估：</strong> 提供类似单元测试的框架，让你用真实的线上测试集去评估每一次代码或 Prompt 修改的效果，告别“玄学调优”。</li></ul><h3 id="技术补充"><a class="markdownIt-Anchor" href="#技术补充"></a> 技术补充</h3><h4 id="记忆与知识的基石向量数据库与-rag检索增强生成"><a class="markdownIt-Anchor" href="#记忆与知识的基石向量数据库与-rag检索增强生成"></a> 记忆与知识的基石：向量数据库与 RAG（检索增强生成）</h4><p>前面我们聊了 Agent 如何通过 <strong>Tool Calling</strong> 去操作外部软件、通过 <strong>LangConnect</strong> 引入各种现成插件。但一个优秀的 Agent 光有“手和脚”还不够，它还得有足够的知识储备。这就引发了一个现实痛点：<strong>大模型的上下文窗口（Context Window）再大，也装不下公司几万页的内部规章制度、代码库或私有文档。</strong></p><p>这时候，<strong>Vector Store（向量数据库）</strong> 与 <strong>RAG（Retrieval-Augmented Generation，检索增强生成）</strong> 就登场了：</p><ul><li><strong>外置超大硬盘与搜索引擎：</strong> RAG 就像是给 Agent 装了一个外部的高性能搜索引擎。当用户问到一个专业问题时，系统不会把全部文档一股脑塞给大模型，而是先在向量数据库中进行“语义检索”，把最相关的几段资料精准揪出来。</li><li><strong>知己知彼再动手：</strong> Agent 拿到这些精准文档后，再结合自己的推理能力去回答问题，或者带着这些背景知识去调用 Tool。这彻底解决了大模型因为“孤陋寡闻”而产生幻觉的痛点。</li></ul><h4 id="体验与并发的支撑异步流式传输streaming与生产部署"><a class="markdownIt-Anchor" href="#体验与并发的支撑异步流式传输streaming与生产部署"></a> 体验与并发的支撑：异步流式传输（Streaming）与生产部署</h4><p>当你的 Agent 逻辑写好了、LangGraph 的图也画完了、甚至用 LangSmith 加上了黑匣子监控，最后在推向真实用户时，往往会卡在最后一个极其现实的工程瓶颈上：<strong>响应太慢。</strong></p><p>一个复杂的 Agent 跑完一套流程——先是思考、然后调用向量数据库、接着触发 Tool Calling、最后在 LangGraph 内部几个节点之间反复辩论、纠错——这可能需要耗费十几秒甚至几分钟。</p><ul><li><strong>不能让用户“干瞪眼”：</strong> 如果前端页面一直转圈，用户在第 5 秒就会失去耐心并关掉网页。</li><li><strong>流式传输（Streaming）的救场：</strong> 现代 Agent 开发必须深度结合 Streaming 技术。它能做到像打字机一样，或者像直播一样，让用户在前端<strong>实时看到 Agent 内部的心理活动</strong>：“<em>正在检索数据库…… 正在调用 getWeather 工具…… 正在尝试修复代码 Bug……</em>”。</li><li><strong>从玩具到商业化产品的分水岭：</strong> 这种实时的状态反馈与异步处理，不仅极大地缓解了用户的焦虑感，也是衡量一个 Agent 系统是否具备高并发、高可用生产级水准的硬指标。</li></ul><h4 id="mcp-model-context-protocol模型上下文协议"><a class="markdownIt-Anchor" href="#mcp-model-context-protocol模型上下文协议"></a> MCP (Model Context Protocol，模型上下文协议)</h4><ul><li><strong>承接位置：</strong> 紧跟在 <strong>LangConnect / Tools</strong> 后面。</li><li><strong>技术亮点：</strong> 过去，无论是 LangChain 还是其他大模型框架，每接入一个新工具或数据库，都要写一堆特定格式的代码。而由 Anthropic 发起并被行业广泛采纳的 <strong>MCP 协议</strong>，彻底实现了<strong>工具和数据源的标准化（就像 AI 时代的 USB 接口规范）</strong>。</li><li><strong>核心价值：</strong> 任何支持 MCP 的本地文件、数据库或软件，都可以零代码适配任何大模型或 Agent 框架，彻底打通了各平台之间的壁垒。</li></ul><h4 id="long-term-memory-长期记忆与状态持久化"><a class="markdownIt-Anchor" href="#long-term-memory-长期记忆与状态持久化"></a> Long-Term Memory (长期记忆与状态持久化)</h4><p>现在的 Agent 大多只有“短期记忆”（对话窗口内的上下文）。但在真实的复杂应用中（如个人专属 AI 助手），Agent 需要具备<strong>跨会话的长期记忆</strong>——它需要把用户的偏好、历史交互、重要决策自动归纳并存入向量数据库或图数据库中，下次对话时能够“主动想起来”，实现真正的个性化与连贯性。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教学 </category>
+          
+          <category> 人工智能 </category>
+          
+          <category> LangChain </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 人工智能 </tag>
+            
+            <tag> LangChain </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>前后端开发</title>
       <link href="/post/212db99c.html"/>
       <url>/post/212db99c.html</url>
