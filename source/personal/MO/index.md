@@ -16,7 +16,7 @@ layout: page
 
 访问网址 [魔戒.net](https://xn--tsst36dsvs.com/)，点击“立即进入”，注册一个账户。
 
-![image](https://moshiqiqian.github.io/picx-images-hosting/image.361s05fbym.webp)
+![image](https://moshiqiqian.github.io/picx-images-hosting/mo/image.92qvphc652.webp)
 
 - 注意邀请码可以填写支持一下：
   ```
@@ -27,7 +27,7 @@ layout: page
 
 - 选择合适的套餐并且购买
 
-![image](https://moshiqiqian.github.io/picx-images-hosting/image.b93ud3f6b.webp)
+![image](https://moshiqiqian.github.io/picx-images-hosting/mo/image.7snyj5xdw9.webp)
 
 #### 3. 导入节点
 
@@ -35,27 +35,25 @@ layout: page
 
 点击“使用文档”，选择合适的系统的教程打开！
 
-![image](https://moshiqiqian.github.io/picx-images-hosting/image.60ug5xz576.webp)
+按照使用文档操作
 
-选择合适的版本，下载 Clash
 
-![image](https://moshiqiqian.github.io/picx-images-hosting/image.77drejp1f6.webp)
 
-点击网站下载，下载太慢的话就多试几次。或者从 [Clash中文版下载-Clash中文网](https://clashcn.com/clash-download-cn) 下载相应的版本，下载安装。
+或者点击网站下载，下载太慢的话就多试几次。或者从 [Clash中文版下载-Clash中文网](https://clashcn.com/clash-download-cn) 下载相应的版本，下载安装。
 
 - 回到首页，点击“一键订阅”，复制订阅链接
 
-![image](https://moshiqiqian.github.io/picx-images-hosting/image.4xuqv25ym1.webp)
+![image](https://moshiqiqian.github.io/picx-images-hosting/mo/image.77eawv64su.webp)
 
-![image](https://moshiqiqian.github.io/picx-images-hosting/image.70ajj455ww.webp)
+
 
 - 打开 Clash，点击“订阅”，复制链接，点击“导入”
 
-![image](https://moshiqiqian.github.io/picx-images-hosting/image.1e8t595a8u.webp)
+![image](https://moshiqiqian.github.io/picx-images-hosting/mo/image.6t7v5zzxon.webp)
 
 #### 4. 使用
 
-![image](https://moshiqiqian.github.io/picx-images-hosting/image.7snf0untoz.webp)
+![image](https://moshiqiqian.github.io/picx-images-hosting/mo/image.7zr6elpthv.webp)
 
 勾选这个就能使用，关机的时候记得使用完关闭，否则可能会出现无法上网，这时候你可以重新开关一下梯子。
 
