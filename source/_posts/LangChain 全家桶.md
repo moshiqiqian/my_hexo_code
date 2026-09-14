@@ -1,5 +1,5 @@
 ---
-title: LangChain 
+title: LangChain 介绍
 abbrlink: a2992615
 tags:
   - LangChain
@@ -7,6 +7,7 @@ tags:
 categories:
   - 教学
   - 人工智能
+  - LangChain
 swiper_index: 5
 description: LangChain 以及相关技术介绍
 date: 2026-08-30 22:15:03
