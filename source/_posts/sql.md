@@ -182,3 +182,25 @@ date: 2026-09-23 17:54:15
 - `LEAD(字段, N)`：往后看 N 行（取下一名/下一单）。
   *(注：`LAG` 和 `LEAD` 的第三个参数默认为 `NULL`，通常可省略不写)*
 
+## 十一、 SQL 书写顺序
+
+SELECT：你要查什么字段？
+
+FROM：从哪张表查？
+
+JOIN：要和哪张表关联？
+
+ON：关联的条件是什么？
+
+WHERE：过滤掉哪些不要的数据？
+
+GROUP BY：按什么字段分组？
+
+HAVING：分组后的结果再过滤？
+
+ORDER BY：结果按什么排序？
+
+LIMIT：只取前几条？
+
+背诵口诀：
+SELECT -> FROM -> JOIN -> ON -> WHERE -> GROUP BY -> HAVING -> ORDER BY -> LIMIT
