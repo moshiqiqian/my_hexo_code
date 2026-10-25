@@ -7,7 +7,6 @@ tags:
   - JMeter
   - 压力测试
 categories:
-  - 教学
   - 测试
   - JMeter
 abbrlink: e934e43c
